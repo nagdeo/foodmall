@@ -2,7 +2,7 @@
 include('session_m.php');
 
 if(!isset($login_session)){
-header('Location: managerlogin.php'); 
+header('Location: reslogin.php'); 
 }
 
 ?>
@@ -86,26 +86,6 @@ header('Location: managerlogin.php');
     </div>
     </div>
 <div class="container">
-    <div class="container">
-    	<div class="col">
-    		
-    	</div>
-    </div>
-
-    
-    	<div class="col-xs-3" style="text-align: center;">
-
-    	<div class="list-group">
-    		<a href="myrestaurant.php" class="list-group-item ">My Restaurant</a>
-    		<a href="add_food_items.php" class="list-group-item active">Add Food Items</a>
-    		<a href="edit_food_items.php" class="list-group-item ">Edit Food Items</a>
-    		<a href="delete_food_items.php" class="list-group-item ">Delete Food Items</a>
-    	</div>
-    </div>
-    
-
-
-    
     <div class="col-xs-9">
       <div class="form-area" style="padding: 0px 100px 100px 100px;">
           <form action="addFoodToRes.php" method="POST">

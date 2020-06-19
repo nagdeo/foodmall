@@ -190,7 +190,7 @@ else {
 require 'connection.php';
 $conn = Connect();
 
-$sql = "SELECT * FROM FOOD WHERE options = 'ENABLE' ORDER BY F_ID";
+$sql = "SELECT * FROM food WHERE options = 'ENABLE' ORDER BY f_if";
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0)
@@ -204,7 +204,7 @@ if (mysqli_num_rows($result) > 0)
 ?>
 <div class="col-md-3">
 
-<form method="post" action="cart.php?action=add&id=<?php echo $row["F_ID"]; ?>">
+<form method="post" action="cart.php?action=add&id=<?php echo $row["f_id"]; ?>">
 <div class="mypanel" align="center";>
 <img src="<?php echo $row["images_path"]; ?>" class="img-responsive">
 <h4 class="text-dark"><?php echo $row["name"]; ?></h4>
