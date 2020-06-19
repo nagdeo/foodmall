@@ -114,8 +114,22 @@ else {
     
  <div class="container" style="width:95%;">
  <?php
+ $sql;
+ $result;
 if(isset($_SESSION['login_user1'])){
-
+    $Uname=$_SESSION['login_user1'];
+    $r_id;
+    $sqlType="Select r_id from restaurant where username='$Uname'";
+    $result1 = mysqli_query($conn, $sqlType);
+    if (mysqli_num_rows($result1) > 0)
+     {
+     while($row = mysqli_fetch_assoc($result1)){
+         $r_id=$row["r_id"];
+     }
+    }
+    
+    $sql = "SELECT * FROM food WHERE options = 'Enable' and r_id='$r_id' ORDER BY f_id";
+    $result = mysqli_query($conn, $sql);
 ?>
 
 <!-- Display all Food from food table -->
@@ -135,7 +149,7 @@ else if (isset($_SESSION['login_user2'])) {
     
     $sql = "SELECT * FROM food WHERE options = 'Enable' and type='$type' ORDER BY f_id";
     $result = mysqli_query($conn, $sql);
-    echo $sql;
+    
     
   ?>
 
@@ -145,7 +159,7 @@ else {
 
 $sql = "SELECT * FROM food WHERE options = 'Enable' ORDER BY f_id";
 $result = mysqli_query($conn, $sql);
-
+}
 if (mysqli_num_rows($result) > 0)
 {
   $count=0;
@@ -214,7 +228,7 @@ else
   <?php
 
 }
-}
+
 ?>
 
 <!-- Footer -->
