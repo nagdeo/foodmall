@@ -1,6 +1,7 @@
 <?php
 session_start();
-
+require 'connection.php';
+$conn = Connect();
 
 ?>
 
@@ -33,18 +34,18 @@ session_start();
 if(isset($_SESSION['login_user1'])){
 
 ?>
-   <ul class="nav navbar-nav navbar-right">
-            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Welcome <?php echo $_SESSION['login_user1']; ?> </a></li>
-            <li><a href="myrestaurant.php">Restaurant</a></li>
+  <ul class="nav navbar-nav navbar-right" style="position: absolute;right:1rem">
+      <li style="margin-right: 1rem;"><a href="#"><span class="glyphicon glyphicon-user"></span> Welcome <?php echo $_SESSION['login_user1']; ?> </a></li>
+            <li style="margin-right: 1rem;"><a href="myrestaurant.php">Restaurant</a></li>
             <li><a href="logout_m.php"><span class="glyphicon glyphicon-log-out"></span> Log Out </a></li>
           </ul>
 <?php
 }
 else if (isset($_SESSION['login_user2'])) {
   ?>
-  <ul class="nav navbar-nav navbar-right">
-            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Welcome <?php echo $_SESSION['login_user2']; ?> </a></li>
-            <li><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span> Cart
+  <ul class="nav navbar-nav navbar-right" style="position: absolute;right:1rem">
+            <li style="margin-right: 1rem;"><a href="#"><span class="glyphicon glyphicon-user"></span> Welcome <?php echo $_SESSION['login_user2']; ?> </a></li>
+            <li style="margin-right: 1rem;"><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span> Cart
               (<?php
               if(isset($_SESSION["cart"])){
               $count = count($_SESSION["cart"]); 
@@ -112,12 +113,35 @@ else {
     
     
  <div class="container" style="width:95%;">
+ <?php
+if(isset($_SESSION['login_user1'])){
+
+?>
 
 <!-- Display all Food from food table -->
 <?php
+}
+else if (isset($_SESSION['login_user2'])) {
+    $Uname=$_SESSION['login_user2'];
+    $type;
+    $sqlType="Select pref from customer where username='$Uname'";
+    $result1 = mysqli_query($conn, $sqlType);
+    if (mysqli_num_rows($result1) > 0)
+     {
+     while($row = mysqli_fetch_assoc($result1)){
+         $type=$row["pref"];
+     }
+    }
+    
+    $sql = "SELECT * FROM food WHERE options = 'Enable' and type='$type' ORDER BY f_id";
+    $result = mysqli_query($conn, $sql);
+    echo $sql;
+    
+  ?>
 
-require 'connection.php';
-$conn = Connect();
+<?php
+}
+else {
 
 $sql = "SELECT * FROM food WHERE options = 'Enable' ORDER BY f_id";
 $result = mysqli_query($conn, $sql);
@@ -144,7 +168,7 @@ if (mysqli_num_rows($result) > 0)
 
 <form method="post" action="cart.php?action=add&id=<?php echo $row["f_id"]; ?>">
 <div class="mypanel card" align="center">
-    <img src="<?php echo $row["images"]; ?>" style="height: 120px" class="img-responsive">
+    <img src="<?php echo $row["images"]; ?>" style="height: 120px;width:100%" class="img-responsive">
     <h4 class="text-dark"><?php echo $R_Name; ?></h4>
 <h4 class="text-dark"><?php echo $row["name"]; ?></h4>
 <h5 class="text-info"><?php echo $row["description"]; ?></h5>
@@ -190,7 +214,19 @@ else
   <?php
 
 }
-
+}
 ?>
+
+<!-- Footer -->
+<footer class="page-footer font-small blue" style="background: black;margin-top:2rem;color: white">
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+     Simran Nagdeo
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
 </body>
 </html>

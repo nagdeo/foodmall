@@ -75,8 +75,9 @@ $email = $conn->real_escape_string($_POST['email']);
 $contact = $conn->real_escape_string($_POST['contact']);
 $address = $conn->real_escape_string($_POST['address']);
 $password = $conn->real_escape_string($_POST['password']);
+$preference=$conn->real_escape_string($_POST['pref']);
 
-$query = "INSERT into customer(name,username,email,contact,address,password) VALUES('" . $fullname . "','" . $username . "','" . $email . "','" . $contact . "','" . $address ."','" . $password ."')";
+$query = "INSERT into customer(name,username,email,contact,address,password,pref) VALUES('" . $fullname . "','" . $username . "','" . $email . "','" . $contact . "','" . $address ."','" . $password ."','" . $preference ."')";
 $success = $conn->query($query);
 
 if (!$success){
