@@ -135,7 +135,7 @@ else {
       }
       
       
-   $quantity = 1;
+   $quantity = $_POST['quantity'];
 //    
 //    $total = ($values["food_quantity"] * $values["food_price"]);
     $R_ID = $_GET['Rid'];
@@ -167,7 +167,7 @@ else {
       <div><p>Order Placed
           </p></div>
       <?php
-           
+          
       }
       
   ?>

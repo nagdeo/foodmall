@@ -11,16 +11,22 @@ header("location: index.php");
 
   <head>
     <title> Guest Login | Le Cafe' </title>
+    <style>
+        .container1 {
+          position: relative;
+           text-align: center;
+          color: white;
+         }
+    </style>
   </head>
+  
 
   <link rel="stylesheet" type = "text/css" href ="css/managerlogin.css">
   <link rel="stylesheet" type = "text/css" href ="css/bootstrap.min.css">
   <script type="text/javascript" src="js/jquery.min.js"></script>
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
 
-  <body>
-
-
+  <body >
     
 
     <nav class="navbar navbar-inverse navbar-fixed-top navigation-clean-search" role="navigation">
@@ -99,6 +105,7 @@ header("location: index.php");
     </div>
     </div>
 
-
+    
+      
     </body>
 </html>

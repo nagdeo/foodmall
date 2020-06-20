@@ -2,8 +2,8 @@
 session_start();
 require 'connection.php';
 $conn = Connect();
-if(!isset($_SESSION['login_user2'])){
-header("location: customerlogin.php"); 
+if(!isset($_SESSION['login_user1'])){
+header("location: resLogin.php"); 
 }
 ?>
 
@@ -54,15 +54,12 @@ th, td {
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.php">Le Cafe'</a>
+          <a class="navbar-brand" href="index.php">FoodMall</a>
         </div>
 
         <div class="collapse navbar-collapse " id="myNavbar">
           <ul class="nav navbar-nav">
             <li><a href="index.php">Home</a></li>
-            <li><a href="aboutus.php">About</a></li>
-            <li><a href="contactus.php">Contact Us</a></li>
-
           </ul>
 
 <?php
@@ -72,9 +69,9 @@ if(isset($_SESSION['login_user1'])){
 
 
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Welcome <?php echo $_SESSION['login_user1']; ?> </a></li>
-            <li><a href="myrestaurant.php">MANAGER CONTROL PANEL</a></li>
-            <li><a href="logout_m.php"><span class="glyphicon glyphicon-log-out"></span> Log Out </a></li>
+            <li><a href="#"></span> Welcome <?php echo $_SESSION['login_user1']; ?> </a></li>
+            
+            <li><a href="logout_m.php"></span> Log Out </a></li>
           </ul>
 <?php
 }
@@ -130,8 +127,8 @@ else {
     </nav>
 
  <?php   
-     $username=$_SESSION['login_user2'];
-     $sqluser = "SELECT * FROM customer WHERE username = '$username' ";
+     $username=$_SESSION['login_user1'];
+     $sqluser = "SELECT * FROM restaurant WHERE username = '$username' ";
      $resultUser = mysqli_query($conn, $sqluser);
      $c_id=0;
 
@@ -141,11 +138,11 @@ else {
         while($rowuser = mysqli_fetch_assoc($resultUser)){
     
          
-         $c_id =  $rowuser["cust_id"];
+         $r_id =  $rowuser["r_id"];
         }
       }
      
-      $sqlOrders = "SELECT * FROM orders WHERE c_id = '$c_id' ";
+      $sqlOrders = "SELECT * FROM orders WHERE r_id = '$r_id' ";
       $resultOrders = mysqli_query($conn, $sqlOrders);
  
       if (mysqli_num_rows($resultOrders) > 0)
@@ -157,6 +154,7 @@ else {
                  <th>Food</th>
                  <th>price</th> 
                  <th>Order Date</th>
+                 <th>Customer name</th>
              </tr>
   
   
@@ -164,9 +162,21 @@ else {
 
       <?php
         while($roworders = mysqli_fetch_assoc($resultOrders)){
-           echo "<tr><td>" .$roworders['foodname']."</td>
+            //get customer name
+            $cust_id=$roworders['c_id'];
+            $cust_name;
+            $sqlCustname = "SELECT name FROM customer WHERE cust_id = '$cust_id' ";
+            $resultCustName = mysqli_query($conn, $sqlCustname);
+            if (mysqli_num_rows($resultCustName) > 0)
+             {
+                while($rowcustname = mysqli_fetch_assoc($resultCustName)){
+                $cust_name=$rowcustname['name'];
+                }
+              }
+             echo "<tr><td>" .$roworders['foodname']."</td>
                  <td>".$roworders['price']."</td>
-                 <td>".$roworders['order_date']."</td>
+                 <td>".$roworders['order_date']."</td><td>".
+                    $cust_name."</td>
                  </tr>";
            
         }

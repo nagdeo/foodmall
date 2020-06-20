@@ -107,6 +107,16 @@ header('Location: reslogin.php');
           <div class="form-group">
             <input type="text" class="form-control" id="images_path" name="images_path" placeholder="Your Food Image Path [images/<filename>.<extention>]" required="">
           </div>
+          <div class="form-group col-xs-12">
+            <label for="password"><span class="text-danger" style="margin-right: 5px;">*</span> Preference: </label>
+              <div class="custom-control custom-radio">
+                  <input type="radio" id="customRadio1" name="pref" value="Veg" class="custom-control-input">
+  <label class="custom-control-label" for="customRadio1" required>Veg</label>
+</div>
+<div class="custom-control custom-radio">
+    <input type="radio" id="customRadio2" name="pref" value="Non-Veg" class="custom-control-input">
+  <label class="custom-control-label" for="customRadio2">Non-Veg</label>
+</div> 
 
           <div class="form-group">
           <button type="submit" id="submit" name="submit" class="btn btn-primary pull-right"> ADD FOOD </button>    

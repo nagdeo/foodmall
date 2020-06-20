@@ -37,7 +37,7 @@ if(isset($_SESSION['login_user1'])){
   <ul class="nav navbar-nav navbar-right" style="position: absolute;right:1rem">
       <li style="margin-right: 1rem;"><a href="#"><span class="glyphicon glyphicon-user"></span> Welcome <?php echo $_SESSION['login_user1']; ?> </a></li>
       <li style="margin-right: 1rem;"><a href="addFood.php">Add food</a></li>
-            <li style="margin-right: 1rem;"><a href="myrestaurant.php">View Orders</a></li>
+      <li style="margin-right: 1rem;"><a href="RestaurantOrder.php">View Orders</a></li>
             <li><a href="logout_m.php"><span class="glyphicon glyphicon-log-out"></span> Log Out </a></li>
           </ul>
 <?php
@@ -46,10 +46,10 @@ else if (isset($_SESSION['login_user2'])) {
   ?>
   <ul class="nav navbar-nav navbar-right" style="position: absolute;right:1rem">
             <li style="margin-right: 1rem;"><a href="#"><span class="glyphicon glyphicon-user"></span> Welcome <?php echo $_SESSION['login_user2']; ?> </a></li>
-            <li style="margin-right: 1rem;"><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart">
+            <li style="margin-right: 1rem;"><a href="cart.php">
                         <span><a href="MyOrders.php">My orders</a></span>
             </li>
-            <li><a href="logout_u.php"><span class="glyphicon glyphicon-log-out"></span> Log Out </a></li>
+            <li><a href="logout_u.php"></span> Log Out </a></li>
           </ul>
   <?php        
 }
@@ -82,8 +82,11 @@ else {
 }
 ?>
 </nav>
+ <marquee width="100%" direction="left" height="30px" style="background: black;color:white;padding:5px 0px;">
+  Only Cash on Delivery is Available, Order By Click on Order Button directly.
+</marquee>
 
-<div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
+<div id="carouselExampleInterval" class="carousel slide" data-ride="carousel" style="margin-top: -0.4rem; ">
   <div class="carousel-inner">
     <div class="carousel-item active" data-interval="10000">
         <img src="images/slide001.jpg" class="d-block w-100" alt="...">
@@ -155,7 +158,7 @@ else if (isset($_SESSION['login_user2'])) {
 <?php
 }
 else {
-echo "<h3 style='text-align:center;margin-top:1rem;'>Restautants</h3>";
+echo "<h3 style='text-align:center;margin-top:1rem;'>Food</h3>";
 $sql = "SELECT * FROM food WHERE options = 'Enable' ORDER BY f_id";
 $result = mysqli_query($conn, $sql);
 }
@@ -169,7 +172,7 @@ if (mysqli_num_rows($result) > 0)
       $r_id=$row["r_id"];
       $sql_R_id = "SELECT name FROM restaurant WHERE r_id='$r_id'";
       $result_rName = $conn->query($sql_R_id);
-      if ($result_rName->num_rows > 0) {
+      if (mysqli_num_rows($result_rName) > 0) {
       while($row1 = $result_rName->fetch_assoc()) {
           $R_Name=$row1["name"];
         }
@@ -179,7 +182,7 @@ if (mysqli_num_rows($result) > 0)
 ?>
 <div class="col-md-3">
 
-
+    <form method="post" action="order.php?action=add&id=<?php echo $row['f_id']; ?>&Rid=<?php echo $row['r_id']; ?>">
 <div class="mypanel card" align="center">
     <img src="<?php echo $row["images"]; ?>" style="height: 120px;width:100%" class="img-responsive">
     <h4 class="text-dark"><?php echo $R_Name; ?></h4>
@@ -194,8 +197,8 @@ if (mysqli_num_rows($result) > 0)
        data-toggle="modal" data-target="#orderModal"
     <?php if (isset($_SESSION['login_user1'])){ ?> disabled <?php   } ?> 
     class="btn btn-success" value="Order">Order</button>
-</div>
-    <div class="modal fade" id="orderModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    </form>
+<!--    <div class="modal fade" id="orderModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -210,13 +213,13 @@ if (mysqli_num_rows($result) > 0)
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <a href="order.php?action=add&id=<?php echo $row["f_id"]; ?>&Rid=<?php echo $row["r_id"]; ?>"><button type="button" class="btn btn-primary" >Order</button></a>
+        <a href="order.php?action=add&id=<?php echo $row['f_id']; ?>&Rid=<?php echo $row['r_id']; ?>"><button type="button" class="btn btn-primary" >Order</button></a>
       </div>
     </div>
   </div>
+</div>-->
+
 </div>
-
-
       
      
 </div>

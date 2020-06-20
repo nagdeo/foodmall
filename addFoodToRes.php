@@ -11,7 +11,7 @@ header('Location: reslogin.php');
 $name = $conn->real_escape_string($_POST['name']);
 $price = $conn->real_escape_string($_POST['price']);
 $description = $conn->real_escape_string($_POST['description']);
-
+$preference= $conn->real_escape_string($_POST['pref']);
 
 // Storing Session
 $user_check=$_SESSION['login_user1'];
@@ -30,8 +30,8 @@ if ($result->num_rows > 0) {
   echo "0 results";
 }
 $images_path = $conn->real_escape_string($_POST['images_path']);
-
-$query = "INSERT INTO food(name,price,description,r_id,images,options) VALUES('" . $name . "','" . $price . "','" . $description . "','" . $R_id ."','" . $images_path . "','Enable')";
+$Enable="Enable";
+$query = "INSERT INTO food(name,price,description,r_id,images,options,type) VALUES('" . $name . "','" . $price . "','" . $description . "','" . $R_id ."','" . $images_path . "','".$Enable ."','". $preference . "')";
 echo $query;
 $success = $conn->query($query);
 
