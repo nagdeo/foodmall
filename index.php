@@ -36,7 +36,8 @@ if(isset($_SESSION['login_user1'])){
 ?>
   <ul class="nav navbar-nav navbar-right" style="position: absolute;right:1rem">
       <li style="margin-right: 1rem;"><a href="#"><span class="glyphicon glyphicon-user"></span> Welcome <?php echo $_SESSION['login_user1']; ?> </a></li>
-            <li style="margin-right: 1rem;"><a href="myrestaurant.php">Restaurant</a></li>
+      <li style="margin-right: 1rem;"><a href="addFood.php">Add food</a></li>
+            <li style="margin-right: 1rem;"><a href="myrestaurant.php">View Orders</a></li>
             <li><a href="logout_m.php"><span class="glyphicon glyphicon-log-out"></span> Log Out </a></li>
           </ul>
 <?php
@@ -45,16 +46,9 @@ else if (isset($_SESSION['login_user2'])) {
   ?>
   <ul class="nav navbar-nav navbar-right" style="position: absolute;right:1rem">
             <li style="margin-right: 1rem;"><a href="#"><span class="glyphicon glyphicon-user"></span> Welcome <?php echo $_SESSION['login_user2']; ?> </a></li>
-            <li style="margin-right: 1rem;"><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span> Cart
-              (<?php
-              if(isset($_SESSION["cart"])){
-              $count = count($_SESSION["cart"]); 
-              echo "$count"; 
-            }
-              else
-                echo "0";
-              ?>)
-             </a></li>
+            <li style="margin-right: 1rem;"><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart">
+                        <span><a href="">My orders</a></span>
+            </li>
             <li><a href="logout_u.php"><span class="glyphicon glyphicon-log-out"></span> Log Out </a></li>
           </ul>
   <?php        
@@ -119,31 +113,35 @@ else {
 if(isset($_SESSION['login_user1'])){
     $Uname=$_SESSION['login_user1'];
     $r_id;
-    $sqlType="Select r_id from restaurant where username='$Uname'";
+    $r_name;
+    $sqlType="Select r_id,name from restaurant where username='$Uname'";
     $result1 = mysqli_query($conn, $sqlType);
     if (mysqli_num_rows($result1) > 0)
      {
      while($row = mysqli_fetch_assoc($result1)){
          $r_id=$row["r_id"];
+         $r_name=$row["name"];
      }
     }
     
     $sql = "SELECT * FROM food WHERE options = 'Enable' and r_id='$r_id' ORDER BY f_id";
     $result = mysqli_query($conn, $sql);
 ?>
-
+     <h3 style="text-align: center;color: #ff6900;margin-top: 1rem">Restaurant <?php echo $r_name;?></h3>
 <!-- Display all Food from food table -->
 <?php
 }
 else if (isset($_SESSION['login_user2'])) {
     $Uname=$_SESSION['login_user2'];
     $type;
-    $sqlType="Select pref from customer where username='$Uname'";
+    $name_user;
+    $sqlType="Select pref,name from customer where username='$Uname'";
     $result1 = mysqli_query($conn, $sqlType);
     if (mysqli_num_rows($result1) > 0)
      {
      while($row = mysqli_fetch_assoc($result1)){
          $type=$row["pref"];
+         $name_user=$row["name"];
      }
     }
     
@@ -152,11 +150,12 @@ else if (isset($_SESSION['login_user2'])) {
     
     
   ?>
-
+  <h3 style="text-align: center;margin-top: 1rem;color: #ff6900;text-transform: capitalize ">Hello <?php echo $name_user;?></h3>
+  <h4 style="text-align: center;">As per your preference, Here is your <?php echo $type;?> Food  &#128522;</h4>
 <?php
 }
 else {
-
+echo "<h3 style='text-align:center;margin-top:1rem;'>Restautants</h3>";
 $sql = "SELECT * FROM food WHERE options = 'Enable' ORDER BY f_id";
 $result = mysqli_query($conn, $sql);
 }
@@ -180,7 +179,7 @@ if (mysqli_num_rows($result) > 0)
 ?>
 <div class="col-md-3">
 
-<form method="post" action="cart.php?action=add&id=<?php echo $row["f_id"]; ?>">
+<form method="post" action="order.php">
 <div class="mypanel card" align="center">
     <img src="<?php echo $row["images"]; ?>" style="height: 120px;width:100%" class="img-responsive">
     <h4 class="text-dark"><?php echo $R_Name; ?></h4>
@@ -191,7 +190,9 @@ if (mysqli_num_rows($result) > 0)
 <input type="hidden" name="hidden_name" value="<?php echo $row["name"]; ?>">
 <input type="hidden" name="hidden_price" value="<?php echo $row["price"]; ?>">
 <input type="hidden" name="hidden_RID" value="<?php echo $row["r_id"]; ?>">
-<input type="submit" name="add" style="margin-top:5px;" class="btn btn-success" value="Order">
+<input type="submit" name="add" style="margin-top:5px;"
+    <?php if (isset($_SESSION['login_user1'])){ ?> disabled <?php   } ?> 
+       class="btn btn-success" value="Order">
 </div>
 </form>
       
@@ -235,7 +236,7 @@ else
 <footer class="page-footer font-small blue" style="background: black;margin-top:2rem;color: white">
 
   <!-- Copyright -->
-  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+  <div class="footer-copyright text-center py-3">&copy; 2020 Copyright:
      Simran Nagdeo
   </div>
   <!-- Copyright -->
