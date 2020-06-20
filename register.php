@@ -1,6 +1,7 @@
 <?php
   require 'connection.php';
 $conn = Connect();
+$user;
 ?>
 <html>
 <head>
@@ -11,17 +12,7 @@ $conn = Connect();
   <link rel="stylesheet" type = "text/css" href ="css/bootstrap.min.css">
   <script type="text/javascript" src="js/jquery.min.js"></script>
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
-      
-      <?php 
-         $yes="false";
-         $user=formname.username.value;
-         $sqlType="Select * from restaurant where username='$user'";
-          $result1 = mysqli_query($conn, $sqlType);
-         if (mysqli_num_rows($result1) > 0)
-          {
-            $yes="true";
-          }
-       ?>
+  
   <script>
       var user=document.getElementById("username");
      
@@ -31,14 +22,9 @@ $conn = Connect();
             alert("Please Select Preference");
             return false;
            }
-           if("<?php $yes == 'true'?>"){
-               alert("This username is already exist");
-            return false;
-           }
-          
-              
-           
+             
       }
+      
   </script>
   <body>  
     <div class="container" style="margin-top: 4%; margin-bottom: 2%;">
@@ -47,7 +33,7 @@ $conn = Connect();
         <div class="panel-heading"> Create Account </div>
         <div class="panel-body">
           
-        <form role="form" name="formname" onsubmit="return checkForm(this)" action="customer_registered_success.php" method="POST">
+        <form role="form" name="formname" onsubmit="return checkForm()" action="customer_registered_success.php" method="POST">
          
           <div class="row">
           <div class="form-group col-xs-12">

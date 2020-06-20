@@ -63,7 +63,7 @@ else {
         Sign Up
       </a>
       <div class="dropdown-menu">
-        <a class="dropdown-item" href="register.html">Customer</a>
+        <a class="dropdown-item" href="register.php">Customer</a>
         <a class="dropdown-item" href="myrestaurant.php">Restaurant</a>
         
       </div>
@@ -179,7 +179,7 @@ if (mysqli_num_rows($result) > 0)
 ?>
 <div class="col-md-3">
 
-<form method="post" action="order.php">
+
 <div class="mypanel card" align="center">
     <img src="<?php echo $row["images"]; ?>" style="height: 120px;width:100%" class="img-responsive">
     <h4 class="text-dark"><?php echo $R_Name; ?></h4>
@@ -190,11 +190,33 @@ if (mysqli_num_rows($result) > 0)
 <input type="hidden" name="hidden_name" value="<?php echo $row["name"]; ?>">
 <input type="hidden" name="hidden_price" value="<?php echo $row["price"]; ?>">
 <input type="hidden" name="hidden_RID" value="<?php echo $row["r_id"]; ?>">
-<input type="submit" name="add" style="margin-top:5px;"
+<button type="submit" name="add" style="margin-top:5px;"
+       data-toggle="modal" data-target="#orderModal"
     <?php if (isset($_SESSION['login_user1'])){ ?> disabled <?php   } ?> 
-       class="btn btn-success" value="Order">
+    class="btn btn-success" value="Order">Order</button>
 </div>
-</form>
+    <div class="modal fade" id="orderModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Order Confirmation</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <h3>Do You want to place this order?</h3>
+          <h4>Cash on delivery is available</h4>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <a href="order.php?action=add&id=<?php echo $row["f_id"]; ?>&Rid=<?php echo $row["r_id"]; ?>"><button type="button" class="btn btn-primary" >Order</button></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
       
      
 </div>
@@ -242,6 +264,11 @@ else
   <!-- Copyright -->
 
 </footer>
+
 <!-- Footer -->
 </body>
 </html>
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->

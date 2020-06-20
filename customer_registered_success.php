@@ -76,14 +76,27 @@ $contact = $conn->real_escape_string($_POST['contact']);
 $address = $conn->real_escape_string($_POST['address']);
 $password = $conn->real_escape_string($_POST['password']);
 $preference=$conn->real_escape_string($_POST['pref']);
-
+         $yes="false";
+          
+         $sqlUser="Select * from customer where username='$username'";
+          $result1 = mysqli_query($conn, $sqlUser);
+          echo $sqlUser;
+         if (mysqli_num_rows($result1) > 0)
+          {
+             header("location: usernameExist.html");
+             return;
+          }
+          else{
+         
 $query = "INSERT into customer(name,username,email,contact,address,password,pref) VALUES('" . $fullname . "','" . $username . "','" . $email . "','" . $contact . "','" . $address ."','" . $password ."','" . $preference ."')";
-$success = $conn->query($query);
+$register = $conn->query($query);
 
-if (!$success){
+if (!$register){
 	die("Couldnt enter data: ".$conn->error);
 }
+          
 
+}
 $conn->close();
 
 ?>
