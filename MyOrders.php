@@ -11,6 +11,30 @@ header("location: customerlogin.php");
 
   <head>
     <title> Cart | Le Cafe' </title>
+    <style>
+        
+        table {
+  width:100%;
+}
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 15px;
+  text-align: left;
+}
+#t01 tr:nth-child(even) {
+  background-color: #eee;
+}
+#t01 tr:nth-child(odd) {
+ background-color: #fff;
+}
+#t01 th {
+  background-color: black;
+  color: white;
+}
+    </style>
   </head>
 
   <link rel="stylesheet" type = "text/css" href ="css/cart.css">
@@ -123,17 +147,31 @@ else {
      
       $sqlOrders = "SELECT * FROM orders WHERE c_id = '$c_id' ";
       $resultOrders = mysqli_query($conn, $sqlOrders);
-
+ 
       if (mysqli_num_rows($resultOrders) > 0)
       {
- 
+      ?>
+           <table id="t01">
+             <tr>
+                 <th>Food</th>
+                 <th>price</th> 
+                 <th>Order Date</th>
+             </tr>
+  
+  
+
+
+      <?php
         while($roworders = mysqli_fetch_assoc($resultOrders)){
-    
-           echo $roworders['o_id'];
+           echo "<tr><td>" .$roworders['foodname']."</td>
+                 <td>".$roworders['price']."</td>
+                 <td>".$roworders['order_date']."</td>
+                 </tr>";
+           
         }
       }
+      ?>
+           </table>
       
-      
-  ?>
     </body>
 </html>
