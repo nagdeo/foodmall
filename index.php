@@ -47,7 +47,7 @@ else if (isset($_SESSION['login_user2'])) {
   <ul class="nav navbar-nav navbar-right" style="position: absolute;right:1rem">
             <li style="margin-right: 1rem;"><a href="#"><span class="glyphicon glyphicon-user"></span> Welcome <?php echo $_SESSION['login_user2']; ?> </a></li>
             <li style="margin-right: 1rem;"><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart">
-                        <span><a href="">My orders</a></span>
+                        <span><a href="MyOrders.php">My orders</a></span>
             </li>
             <li><a href="logout_u.php"><span class="glyphicon glyphicon-log-out"></span> Log Out </a></li>
           </ul>

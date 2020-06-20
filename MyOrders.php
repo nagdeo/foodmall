@@ -106,69 +106,33 @@ else {
     </nav>
 
  <?php   
-     $F_ID= $_GET['id'];
-     echo $_GET['Rid'];
-     $sqlFood = "SELECT * FROM food WHERE f_id = '$F_ID' ";
-     $resultFood = mysqli_query($conn, $sqlFood);
+     $username=$_SESSION['login_user2'];
+     $sqluser = "SELECT * FROM customer WHERE username = '$username' ";
+     $resultUser = mysqli_query($conn, $sqluser);
      $c_id=0;
 
-      if (mysqli_num_rows($resultFood) > 0)
+      if (mysqli_num_rows($resultUser) > 0)
       {
  
-        while($rowFood = mysqli_fetch_assoc($resultFood)){
+        while($rowuser = mysqli_fetch_assoc($resultUser)){
     
-         $foodname = $rowFood["name"];
-         $price =  $rowFood["price"];
+         
+         $c_id =  $rowuser["cust_id"];
         }
       }
-      $username = $_SESSION["login_user2"];
-      $sqlUId = "SELECT cust_id FROM customer WHERE username = '$username' ";
-      $resultUID = mysqli_query($conn, $sqlUId);
+     
+      $sqlOrders = "SELECT * FROM orders WHERE c_id = '$c_id' ";
+      $resultOrders = mysqli_query($conn, $sqlOrders);
 
-      if (mysqli_num_rows($resultUID) > 0)
+      if (mysqli_num_rows($resultOrders) > 0)
       {
  
-        while($rowUId = mysqli_fetch_assoc($resultUID)){
+        while($roworders = mysqli_fetch_assoc($resultOrders)){
     
-          $c_id= $rowUId["cust_id"];
+           echo $roworders['o_id'];
         }
       }
       
-      
-   $quantity = 1;
-//    
-//    $total = ($values["food_quantity"] * $values["food_price"]);
-    $R_ID = $_GET['Rid'];
-    
-    $order_date = date('Y-m-d');
-    
-//    $gtotal = $gtotal + $total;
-
-
-     $query = "INSERT INTO ORDERS (f_id, foodname, price,  quantity, order_date, c_id, r_id) 
-              VALUES ('" . $F_ID . "','" . $foodname . "','" . $price . "','" . $quantity . "','" . $order_date . "','" . $c_id . "','" . $R_ID . "')";
-             
-
-              $success = $conn->query($query);         
-
-      if(!$success)
-      {
-        ?>
-        <div class="container">
-          <div class="jumbotron">
-            <h1>Something went wrong!</h1>
-            <p>Try again later.</p>
-          </div>
-        </div>
-
-        <?php
-      }else{
-          ?>
-      <div><p>Order Placed
-          </p></div>
-      <?php
-           
-      }
       
   ?>
     </body>
