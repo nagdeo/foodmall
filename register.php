@@ -1,6 +1,6 @@
 <?php
-  require 'connection.php';
-$conn = Connect();
+include('login_u.php');
+
 $user;
 ?>
 <html>
@@ -26,17 +26,14 @@ $user;
       }
       
   </script>
+  
   <body>  
+      
+      
         <nav class="navbar navbar-inverse navbar-fixed-top navigation-clean-search" role="navigation">
       <div class="container">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="index.php">FoodMall</a>
+            <a class="navbar-brand" href="index.php" style="color: white">FoodMall</a>
         </div>
 
         <div class="collapse navbar-collapse " id="myNavbar">
@@ -58,7 +55,7 @@ $user;
           <div class="panel-heading" style="background-color: darkolivegreen;"> Create Account </div>
         <div class="panel-body">
           
-        <form role="form" name="formname" onsubmit="return checkForm()" action="customer_registered_success.php" method="POST">
+            <form name="formname" onsubmit="return checkForm()" action="customer_registered_success.php" method="POST">
          
           <div class="row">
           <div class="form-group col-xs-12">
@@ -133,7 +130,7 @@ $user;
         </div>
 
         
-
+        <label style="margin-left: 5px;color: red;"><span> <?php echo $error;  ?> </span></label>
         <div class="row">
           <div class="form-group col-xs-4">
               <button class="btn " style="background-color: darkolivegreen;color:white;" type="submit" >Submit</button>
@@ -141,7 +138,7 @@ $user;
 
         </div>
         <label style="margin-left: 5px;">or</label> <br>
-       <label style="margin-left: 5px;"><a href="customerlogin.php">Have an account? Login.</a></label>
+        <label style="margin-left: 5px;"><a href="customerlogin.php">Have an account? Login.</a></label>
 
         </form>
 
@@ -152,6 +149,6 @@ $user;
     </div>
     </div>
   </div>
-      
+    
     </body>
 </html>

@@ -12,12 +12,6 @@
        <nav class="navbar navbar-inverse navbar-fixed-top navigation-clean-search" role="navigation">
       <div class="container">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
             <a class="navbar-brand" href="index.php" style="color: white;">FoodMall</a>
         </div>
 
@@ -109,7 +103,7 @@
 
         </div>
         <label style="margin-left: 5px;">or</label> <br>
-       <label style="margin-left: 5px;"><a href="customerlogin.php">Have an account? Login.</a></label>
+        <label style="margin-left: 5px;"><a href="reslogin.php">Have an account? Login.</a></label>
 
         </form>
 
@@ -119,6 +113,9 @@
       
     </div>
     </div>
-    </body>
+    
    </div>
+      
+ 
+  </body>
 </html>

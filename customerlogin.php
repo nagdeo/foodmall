@@ -25,7 +25,7 @@ header("location: index.php");
   <link rel="stylesheet" type = "text/css" href ="css/bootstrap.min.css">
   <script type="text/javascript" src="js/jquery.min.js"></script>
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
-
+  
   <body >
     
 
@@ -92,7 +92,7 @@ header("location: index.php");
 
          </div><br>
         <label style="margin-left: 5px;">Don't have an account...?</label> 
-        <label style="margin-left: 5px;"><a href="register.html">Create a new account.</a></label>
+        <label style="margin-left: 5px;"><a href="register.php">Create a new account.</a></label>
 
         </form>
         </div>     
@@ -101,6 +101,16 @@ header("location: index.php");
     </div>
   </div>
     
+      
+<!--   <footer class="page-footer font-small blue" style="background: black;margin-top:2rem;color: white;position:absolute;bottom: 0px ;padding: 15px 0px;width: 100%;">
+
+   Copyright 
+    <div class="footer-copyright text-center py-3">&copy; 2020 Copyright:
+     Simran Nagdeo
+    </div>
+   Copyright 
+
+    </footer>-->
       
     </body>
 </html>
