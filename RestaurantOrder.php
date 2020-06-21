@@ -10,7 +10,7 @@ header("location: resLogin.php");
 <html>
 
   <head>
-    <title> Cart | Le Cafe' </title>
+    <title> Restaurant Orders </title>
     <style>
         
         table {
@@ -33,6 +33,13 @@ th, td {
 #t01 th {
   background-color: black;
   color: white;
+ text-align: center;
+    padding: 10px 0px;
+}
+#t01 td {
+ text-transform: capitalize;
+  text-align: center;
+    padding: 10px 0px;
 }
 .face:hover {
   animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;

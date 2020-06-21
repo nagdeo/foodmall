@@ -10,7 +10,7 @@ header("location: index.php");
 <html>
 
   <head>
-    <title> Guest Login | Le Cafe' </title>
+    <title> Customer Login </title>
     <style>
         .container1 {
           position: relative;
@@ -38,7 +38,7 @@ header("location: index.php");
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.php">FoodMall</a>
+          <a class="navbar-brand" href="index.php" style="color:white;">FoodMall</a>
         </div>
 
         <div class="collapse navbar-collapse " id="myNavbar">

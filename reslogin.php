@@ -10,7 +10,7 @@ header("location: addFood.php");
 <html>
 
   <head>
-    <title> Guest Login | Le Cafe' </title>
+    <title> Restaurant Login </title>
     <style>
         .container1 {
           position: relative;

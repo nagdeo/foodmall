@@ -94,7 +94,7 @@ else {
 
  <?php   
      $F_ID= $_GET['id'];
-    
+     $order_id;
      $sqlFood = "SELECT * FROM food WHERE f_id = '$F_ID' ";
      $resultFood = mysqli_query($conn, $sqlFood);
      $c_id=0;
@@ -123,13 +123,9 @@ else {
       
       
    $quantity = $_POST['quantity'];
-//    
-//    $total = ($values["food_quantity"] * $values["food_price"]);
     $R_ID = $_GET['Rid'];
     
     $order_date = date('Y-m-d');
-    
-//    $gtotal = $gtotal + $total;
 
 
      $query = "INSERT INTO orders (f_id, foodname, price,  quantity, order_date, c_id, r_id) 
@@ -137,25 +133,35 @@ else {
              
 
               $success = $conn->query($query);         
-                echo $success;
+               
       if(!$success)
       {
         ?>
-        <div class="container">
-          <div class="jumbotron">
+        <div style="text-align: center;">
+          <div class="]">
             <h1>Something went wrong!</h1>
-            <p>Try again later.</p>
+            <p>Try again <a href="index.php">Order Now</a>.</p>
           </div>
         </div>
 
         <?php
       }else{
+          $sqlOrderId = "SELECT * FROM orders Order by o_id DESC LIMIT 1";
+          $resultOrderId = mysqli_query($conn, $sqlOrderId);
+           if (mysqli_num_rows($resultOrderId) > 0)
+           {
+              while($rowOrderId = mysqli_fetch_assoc($resultOrderId)){
+                     $order_id= $rowOrderId['o_id'];
+              } 
+           }
+           
           ?>
       <div style="margin: auto;width:50%;text-align: center">
           <h3>Order Successfully Placed!!! &#128522;</h3>
-          <h2>Your Order Id is 66857687</h2>
+          <h2>Your Order Id is <?php echo $order_id?></h2>
           <h5>Please keep cash available with you.... </h5>
           <h5>You will receive your order within 30 min! &#128522;</h5>
+          <h4>Do you want to order something else...<a href="index.php">Order Now</a>.</h4>
       </div>
       <?php
           

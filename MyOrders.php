@@ -33,7 +33,15 @@ th, td {
 #t01 th {
   background-color: black;
   color: white;
+  text-align: center;
+    padding: 10px 0px;
 }
+#t01 td {
+ text-transform: capitalize;
+  text-align: center;
+    padding: 10px 0px;
+}
+
     </style>
   </head>
 
@@ -123,19 +131,26 @@ else if (isset($_SESSION['login_user2'])) {
              </tr>
   
   
-
+      
 
       <?php
+        $total=0;
         while($roworders = mysqli_fetch_assoc($resultOrders)){
            echo "<tr><td>" .$roworders['foodname']."</td>
                  <td>".$roworders['price']."</td>
                  <td>".$roworders['order_date']."</td>
                  </tr>";
-           
+            $total=$total+$roworders['price'];
         }
         ?>
+             <tr >
+                 
+                 <td colspan="3"><span style="float:right;margin-right: 2rem"><b>Total Price:&nbsp;&nbsp;</b><?php echo $total;?></span></td>
+             </tr>
               </table>
-      </div><?php
+      </div>
+          <?php
+          
       } else{
       ?>
       <p>There are no orders</p>

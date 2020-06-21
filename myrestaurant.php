@@ -1,9 +1,9 @@
 <html>
 <head>
-    <title> Customer SignUp </title>
+    <title> Restaurant SignUp </title>
   </head>
 
-  <link rel="stylesheet" type = "text/css" href ="css/managersignup.css">
+  
   <link rel="stylesheet" type = "text/css" href ="css/bootstrap.min.css">
   <script type="text/javascript" src="js/jquery.min.js"></script>
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
@@ -18,7 +18,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.php">FoodMall</a>
+            <a class="navbar-brand" href="index.php" style="color: white;">FoodMall</a>
         </div>
 
         <div class="collapse navbar-collapse " id="myNavbar">

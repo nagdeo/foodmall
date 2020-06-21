@@ -35,21 +35,21 @@ if(isset($_SESSION['login_user1'])){
 
 ?>
   <ul class="nav navbar-nav navbar-right" style="position: absolute;right:1rem">
-      <li style="margin-right: 1rem;"><a href="#"><span class="glyphicon glyphicon-user"></span> Welcome <?php echo $_SESSION['login_user1']; ?> </a></li>
-      <li style="margin-right: 1rem;"><a href="addFood.php">Add food</a></li>
-      <li style="margin-right: 1rem;"><a href="RestaurantOrder.php">View Orders</a></li>
-            <li><a href="logout_m.php"><span class="glyphicon glyphicon-log-out"></span> Log Out </a></li>
+      <li style="margin-right: 1rem;"><a href="#" style="color: white;">Welcome <?php echo $_SESSION['login_user1']; ?> </a></li>
+      <li style="margin-right: 1rem;"><a href="addFood.php" style="color: white;">Add food</a></li>
+      <li style="margin-right: 1rem;"><a href="RestaurantOrder.php" style="color: white;">View Orders</a></li>
+            <li><a href="logout_m.php" style="color: white;"> Log Out </a></li>
           </ul>
 <?php
 }
 else if (isset($_SESSION['login_user2'])) {
   ?>
   <ul class="nav navbar-nav navbar-right" style="position: absolute;right:1rem">
-            <li style="margin-right: 1rem;"><a href="#"><span class="glyphicon glyphicon-user"></span> Welcome <?php echo $_SESSION['login_user2']; ?> </a></li>
-            <li style="margin-right: 1rem;"><a href="cart.php">
-                        <span><a href="MyOrders.php">My orders</a></span>
+      <li style="margin-right: 1rem;"><a href="#" style="color: white;"> Welcome <?php echo $_SESSION['login_user2']; ?> </a></li>
+            <li style="margin-right: 1rem;">
+                        <span><a href="MyOrders.php" style="color: white;">My orders</a></span>
             </li>
-            <li><a href="logout_u.php"></span> Log Out </a></li>
+            <li><a href="logout_u.php" style="color: white;"></span> Log Out </a></li>
           </ul>
   <?php        
 }
@@ -88,13 +88,13 @@ else {
 
 <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel" style="margin-top: -0.4rem; ">
   <div class="carousel-inner">
-    <div class="carousel-item active" data-interval="10000">
+      <div class="carousel-item active" style="height: 25rem;" data-interval="10000">
         <img src="images/slide001.jpg" class="d-block w-100" alt="...">
     </div>
-    <div class="carousel-item" data-interval="2000">
-      <img src="images/slide002.jpg" class="d-block w-100" alt="...">
+    <div class="carousel-item" style="height: 25rem;" data-interval="2000">
+      <img src="images/login3.jpg" class="d-block w-100" alt="...">
     </div>
-    <div class="carousel-item">
+    <div class="carousel-item" style="height: 25rem;">
       <img src="images/slide003.jpg" class="d-block w-100" alt="...">
     </div>
   </div>
