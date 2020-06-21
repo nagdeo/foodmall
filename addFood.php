@@ -21,30 +21,7 @@ header('Location: reslogin.php');
   <body>
 
 
-    <button onclick="topFunction()" id="myBtn" title="Go to top">
-      <span class="glyphicon glyphicon-chevron-up"></span>
-    </button>
-  
-  
-    <script type="text/javascript">
-      window.onscroll = function()
-      {
-        scrollFunction()
-      };
-
-      function scrollFunction(){
-        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-          document.getElementById("myBtn").style.display = "block";
-        } else {
-          document.getElementById("myBtn").style.display = "none";
-        }
-      }
-
-      function topFunction() {
-        document.body.scrollTop = 0;
-        document.documentElement.scrollTop = 0;
-      }
-    </script>
+   
 
     <nav class="navbar navbar-inverse navbar-fixed-top navigation-clean-search" role="navigation">
       <div class="container">
@@ -55,20 +32,19 @@ header('Location: reslogin.php');
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.php">Le Cafe'</a>
+          <a class="navbar-brand" href="index.php" style="color:white;">Foodmall</a>
         </div>
 
         <div class="collapse navbar-collapse " id="myNavbar">
           <ul class="nav navbar-nav">
             <li><a href="index.php">Home</a></li>
-            <li><a href="aboutus.php">About</a></li>
-            <li><a href="contactus.php">Contact Us</a></li>
+           
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Welcome <?php echo $login_session; ?> </a></li>
-            <li class="active"> <a href="managerlogin.php">MANAGER CONTROL PANEL</a></li>
-            <li><a href="logout_m.php"><span class="glyphicon glyphicon-log-out"></span> Log Out </a></li>
+              <li><a href="#" style="color:white;text-transform: capitalize;">Welcome <?php echo $login_session; ?> </a></li>
+          
+            <li><a href="logout_m.php">Log Out </a></li>
           </ul>
         </div>
 
@@ -78,34 +54,30 @@ header('Location: reslogin.php');
 
 
 
-<div class="container">
-    <div class="jumbotron">
-     <h1>Hello Manager! </h1>
-     <p>Manage all your restaurant from here</p>
 
-    </div>
-    </div>
-<div class="container">
-    <div class="col-xs-9">
-      <div class="form-area" style="padding: 0px 100px 100px 100px;">
+<div style="margin: auto;width:100%">
+   <div style="position:relative;width: 100%">
+    <img src="images/login3.jpg" style="width:100%;height:30rem;">
+      <div class="" style="padding: 0px 100px ;position:absolute;top:25%;left:10%;background: white;border: 2px solid darkolivegreen">
+          
           <form action="addFoodToRes.php" method="POST">
         <br style="clear: both">
-          <h3 style="margin-bottom: 25px; text-align: center; font-size: 30px;"> ADD NEW FOOD ITEM HERE </h3>
+          <h3 style="margin-bottom: 25px; text-align: center; font-size: 30px;color: darkolivegreen;"> ADD NEW FOOD ITEM HERE </h3>
 
           <div class="form-group">
-            <input type="text" class="form-control" id="name" name="name" placeholder="Your Food name" required="">
+            <input type="text" class="form-control" id="name" name="name" placeholder="Food name" required="">
           </div>     
 
           <div class="form-group">
-            <input type="text" class="form-control" id="price" name="price" placeholder="Your Food Price (INR)" required="">
+            <input type="text" class="form-control" id="price" name="price" placeholder="Food Price (INR)" required="">
           </div>
 
           <div class="form-group">
-            <input type="text" class="form-control" id="description" name="description" placeholder="Your Food Description" required="">
+            <input type="text" class="form-control" id="description" name="description" placeholder="Food Description" required="">
           </div>
 
           <div class="form-group">
-            <input type="text" class="form-control" id="images_path" name="images_path" placeholder="Your Food Image Path [images/<filename>.<extention>]" required="">
+            <input type="text" class="form-control" id="images_path" name="images_path" placeholder="Food Image Path [images/<filename>.<extention>]" required="">
           </div>
           <div class="form-group col-xs-12">
             <label for="password"><span class="text-danger" style="margin-right: 5px;">*</span> Preference: </label>
@@ -117,9 +89,9 @@ header('Location: reslogin.php');
     <input type="radio" id="customRadio2" name="pref" value="Non-Veg" class="custom-control-input">
   <label class="custom-control-label" for="customRadio2">Non-Veg</label>
 </div> 
-
+            <br>
           <div class="form-group">
-          <button type="submit" id="submit" name="submit" class="btn btn-primary pull-right"> ADD FOOD </button>    
+          <button type="submit" id="submit" name="submit" class="btn" style="background-color: darkolivegreen;color: white"> ADD FOOD </button>    
       </div>
         </form>
 

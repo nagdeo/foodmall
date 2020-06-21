@@ -30,16 +30,13 @@ header("location: customerlogin.php");
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.php">Le Cafe'</a>
+            <a class="navbar-brand" href="index.php" style="color: white;">FoodMall</a>
         </div>
 
         <div class="collapse navbar-collapse " id="myNavbar">
           <ul class="nav navbar-nav">
             <li><a href="index.php">Home</a></li>
-            <li><a href="aboutus.php">About</a></li>
-            <li><a href="contactus.php">Contact Us</a></li>
-
-          </ul>
+           </ul>
 
 <?php
 if(isset($_SESSION['login_user1'])){
@@ -57,19 +54,9 @@ if(isset($_SESSION['login_user1'])){
 else if (isset($_SESSION['login_user2'])) {
   ?>
            <ul class="nav navbar-nav navbar-right">
-            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Welcome <?php echo $_SESSION['login_user2']; ?> </a></li>
-            <li><a href="foodlist.php"><span class="glyphicon glyphicon-cutlery"></span> Food Zone </a></li>
-            <li class="active" ><a href="foodlist.php"><span class="glyphicon glyphicon-shopping-cart"></span> Cart
-             (<?php
-              if(isset($_SESSION["cart"])){
-              $count = count($_SESSION["cart"]); 
-              echo "$count"; 
-            }
-              else
-                echo "0";
-              ?>)
-              </a></li>
-            <li><a href="logout_u.php"><span class="glyphicon glyphicon-log-out"></span> Log Out </a></li>
+               <li><a href="#" style="color: white"> Welcome <?php echo $_SESSION['login_user2']; ?> </a></li>
+            
+            <li><a href="logout_u.php">Log Out </a></li>
           </ul>
   <?php        
 }
@@ -107,7 +94,7 @@ else {
 
  <?php   
      $F_ID= $_GET['id'];
-     echo $_GET['Rid'];
+    
      $sqlFood = "SELECT * FROM food WHERE f_id = '$F_ID' ";
      $resultFood = mysqli_query($conn, $sqlFood);
      $c_id=0;
@@ -145,12 +132,12 @@ else {
 //    $gtotal = $gtotal + $total;
 
 
-     $query = "INSERT INTO ORDERS (f_id, foodname, price,  quantity, order_date, c_id, r_id) 
+     $query = "INSERT INTO orders (f_id, foodname, price,  quantity, order_date, c_id, r_id) 
               VALUES ('" . $F_ID . "','" . $foodname . "','" . $price . "','" . $quantity . "','" . $order_date . "','" . $c_id . "','" . $R_ID . "')";
              
 
               $success = $conn->query($query);         
-
+                echo $success;
       if(!$success)
       {
         ?>
@@ -164,8 +151,12 @@ else {
         <?php
       }else{
           ?>
-      <div><p>Order Placed
-          </p></div>
+      <div style="margin: auto;width:50%;text-align: center">
+          <h3>Order Successfully Placed!!! &#128522;</h3>
+          <h2>Your Order Id is 66857687</h2>
+          <h5>Please keep cash available with you.... </h5>
+          <h5>You will receive your order within 30 min! &#128522;</h5>
+      </div>
       <?php
           
       }

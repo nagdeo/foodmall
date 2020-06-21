@@ -113,6 +113,25 @@ else {
  <?php
  $sql;
  $result;
+ $foodCount;
+ $foodCountRes;
+ $sqlFoodcount="Select * from food ";
+    $resultFoodCount = mysqli_query($conn, $sqlFoodcount);
+    $foodCount= mysqli_num_rows($resultFoodCount) ;
+   if(isset($_SESSION['login_user1'])){
+    $RUsername=$_SESSION['login_user1'];
+    $R_id;
+    $sqlRId="Select * from restaurant where username='$RUsername' ";     
+     $resultRId = mysqli_query($conn, $sqlRId);
+     if(mysqli_num_rows($resultRId)>0){
+         while($rowIdR = mysqli_fetch_assoc($resultRId)){
+             $R_id=$rowIdR['r_id'];
+         }
+     }
+     $sqlResFoodcount="Select * from food where r_id='$R_id'";
+    $resultResFoodCount = mysqli_query($conn, $sqlResFoodcount);
+    $foodCountRes= mysqli_num_rows($resultResFoodCount) ;
+   }
 if(isset($_SESSION['login_user1'])){
     $Uname=$_SESSION['login_user1'];
     $r_id;
@@ -154,8 +173,10 @@ else if (isset($_SESSION['login_user2'])) {
     
   ?>
   <h3 style="text-align: center;margin-top: 1rem;color: #ff6900;text-transform: capitalize ">Hello <?php echo $name_user;?></h3>
-  <h4 style="text-align: center;">As per your preference, Here is your <?php echo $type;?> Food  &#128522;</h4>
+ <?php if($foodCount >0){?>
+  <h4 style="text-align: center;" >As per your preference, Here is your <?php echo $type;?> Food  &#128522;</h4>
 <?php
+ }
 }
 else {
 echo "<h3 style='text-align:center;margin-top:1rem;'>Food</h3>";
@@ -241,16 +262,20 @@ if($count==4)
 else
 {
   ?>
-  <div class="container">
-    <div class="jumbotron">
+<div class="container" style="margin-top: 3rem;margin-bottom: 3rem">
+    <div class="">
       <center>
+          <?php if($foodCountRes==0){ ?>
+           <label style="margin-left: 5px;color: red;"> <h1> No food added to your Restaurant.</h1> </label>
+          <p>Add Food Items...!</p><?php }?>
+          <?php if($foodCount==0 && isset($_SESSION['login_user2'])){?>
          <label style="margin-left: 5px;color: red;"> <h1>Oops! No food is available.</h1> </label>
-        <p>Stay Hungry...! :P</p>
+          <p>Stay Hungry...! :P</p><?php }?>
       </center>
        
     </div>
   </div>
-
+</div>
   <?php
 
 }

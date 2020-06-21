@@ -53,13 +53,14 @@ header("location: index.php");
       </div>
     </nav>
 
-   
-
-    <div class="container" style="margin-top: 4%; margin-bottom: 2%;">
-      <div class="col-md-5 col-md-offset-4">
-        <label style="margin-left: 5px;color: red;"><span> <?php echo $error;  ?> </span></label>
-      <div class="panel panel-primary">
-        <div class="panel-heading"> Login </div>
+  <div style="position:relative">
+    <img src="images/login3.jpg" style="width:100%;height:30rem;">
+    <div class="" style="margin-top: 4%; margin-bottom: 2%;position:absolute;top:25%;left:15%;">
+        
+      <div class="">
+       
+        <div class="panel panel-primary" style="border-color:darkolivegreen;width:50rem;">
+          <div class="panel-heading" style="background-color:darkolivegreen;border:1px solid darkolivegreen;"> Login </div>
         <div class="panel-body">
           
         <form action="" method="POST">
@@ -67,12 +68,9 @@ header("location: index.php");
         <div class="row">
           <div class="form-group col-xs-12">
             <label for="username"><span class="text-danger" style="margin-right: 5px;">*</span> Username: </label>
-            <div class="input-group">
+            <div class="">
               <input class="form-control" id="username" type="text" name="username" placeholder="Username" required="" autofocus="">
-              <span class="input-group-btn">
-                <label class="btn btn-primary"><span class="glyphicon glyphicon-user" aria-hidden="true"></label>
-            </span>
-              </span>
+              
             </div>           
           </div>
         </div>
@@ -80,23 +78,20 @@ header("location: index.php");
         <div class="row">
           <div class="form-group col-xs-12">
             <label for="password"><span class="text-danger" style="margin-right: 5px;">*</span> Password: </label>
-            <div class="input-group">
+            <div class="">
               <input class="form-control" id="password" type="password" name="password" placeholder="Password" required="">
-              <span class="input-group-btn">
-                <label class="btn btn-primary"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span></label>
-            </span>
               
             </div>           
           </div>
         </div>
-
-        <div class="row">
-          <div class="form-group col-xs-4">
-              <button class="btn btn-primary" name="submit" type="submit" value=" Login ">Submit</button>
+         <label style="margin-left: 5px;color: red;"><span> <?php echo $error;  ?> </span></label>
+         <div class="row" >
+          <div class=" col-xs-4">
+              <button class="btn" style="background-color:darkolivegreen;color:white;" name="submit" type="submit" value=" Login ">Submit</button>
           </div>
 
-        </div>
-        <label style="margin-left: 5px;">or</label> <br>
+         </div><br>
+        <label style="margin-left: 5px;">Don't have an account...?</label> 
         <label style="margin-left: 5px;"><a href="register.html">Create a new account.</a></label>
 
         </form>
@@ -104,7 +99,7 @@ header("location: index.php");
       </div>      
     </div>
     </div>
-
+  </div>
     
       
     </body>

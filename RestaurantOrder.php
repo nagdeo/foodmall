@@ -34,6 +34,30 @@ th, td {
   background-color: black;
   color: white;
 }
+.face:hover {
+  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
     </style>
   </head>
 
@@ -54,7 +78,7 @@ th, td {
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.php">FoodMall</a>
+            <a class="navbar-brand" href="index.php" style="color:white;">FoodMall</a>
         </div>
 
         <div class="collapse navbar-collapse " id="myNavbar">
@@ -69,7 +93,7 @@ if(isset($_SESSION['login_user1'])){
 
 
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#"></span> Welcome <?php echo $_SESSION['login_user1']; ?> </a></li>
+              <li><a href="#" style="color:white"> Welcome <?php echo $_SESSION['login_user1']; ?> </a></li>
             
             <li><a href="logout_m.php"></span> Log Out </a></li>
           </ul>
@@ -79,46 +103,15 @@ else if (isset($_SESSION['login_user2'])) {
   ?>
            <ul class="nav navbar-nav navbar-right">
             <li><a href="#"><span class="glyphicon glyphicon-user"></span> Welcome <?php echo $_SESSION['login_user2']; ?> </a></li>
-            <li><a href="foodlist.php"><span class="glyphicon glyphicon-cutlery"></span> Food Zone </a></li>
-            <li class="active" ><a href="foodlist.php"><span class="glyphicon glyphicon-shopping-cart"></span> Cart
-             (<?php
-              if(isset($_SESSION["cart"])){
-              $count = count($_SESSION["cart"]); 
-              echo "$count"; 
-            }
-              else
-                echo "0";
-              ?>)
-              </a></li>
+           
             <li><a href="logout_u.php"><span class="glyphicon glyphicon-log-out"></span> Log Out </a></li>
           </ul>
   <?php        
 }
-else {
 
   ?>
 
-<ul class="nav navbar-nav navbar-right">
-            <li><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> Sign Up <span class="caret"></span> </a>
-                <ul class="dropdown-menu">
-              <li> <a href="customersignup.php"> User Sign-up</a></li>
-              <li> <a href="managersignup.php"> Manager Sign-up</a></li>
-              <li> <a href="#"> Admin Sign-up</a></li>
-            </ul>
-            </li>
 
-            <li><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-log-in"></span> Login <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-              <li> <a href="customerlogin.php"> User Login</a></li>
-              <li> <a href="managerlogin.php"> Manager Login</a></li>
-              <li> <a href="#"> Admin Login</a></li>
-            </ul>
-            </li>
-          </ul>
-
-<?php
-}
-?>
 
 
         </div>
@@ -185,7 +178,9 @@ else {
       </div><?php
       } else{
       ?>
-      <p>There are no orders</p>
+      <div class="face" style="width: 100%;text-align: center;font-size: 2rem;height: 100%;color: darkolivegreen">
+          <p style="margin-top: 10%">There are no orders for your Restaurant!</p>
+      </div>
       <?php }?>
       
     </body>
