@@ -2,35 +2,36 @@
 
   <head>
     <title> Customer Registration successful </title>
+    <style>
+        .homeLink:hover{
+             color: white;
+        }
+    </style>
   </head>
 
-  <link rel="stylesheet" type = "text/css" href ="css/bootstrap.min.css">
   <script type="text/javascript" src="js/jquery.min.js"></script>
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
   <body>
 
 
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-     <!-- Brand -->
-       <a class="navbar-brand" href="#">FoodMall</a>
+   <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+       <a class="navbar-brand" href="#" style="color: white;">FoodMall</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-  <!-- Links -->
-           <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" href="index.php" style="color: white;">Home</a>
-              </li>
-           </ul>
-           
-        <div class="collapse navbar-collapse " id="myNavbar">
-          <ul class="nav navbar-nav">
-            <li class="active" ><a href="index.php">Home</a></li>
-          </ul>
-        </div>
-
-      
-    </nav>
-
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav">
+    <li class="nav-item">
+        <a class="nav-link homeLink" href="index.php" style="color:grey;">Home</a>
+    </li>
+  </div>
+</nav>
 <?php
 
 require 'connection.php';
@@ -73,7 +74,7 @@ $conn->close();
 	<div class="" style="text-align: center;margin-top: 14rem;">
 		<h2> <?php echo "Welcome $fullname!" ?> </h2>
 		<h1>Your account has been created.</h1>
-		<p>Login Now from <a href="customerlogin.php">HERE</a></p>
+		<p>Login Now from <a href="customerlogin.php">here</a></p>
 	</div>
 </div>
 

@@ -113,25 +113,12 @@ else {
  <?php
  $sql;
  $result;
- $foodCount;
- $foodCountRes;
+ $foodCount=0;
+ $foodCountRes=0;
  $sqlFoodcount="Select * from food ";
     $resultFoodCount = mysqli_query($conn, $sqlFoodcount);
     $foodCount= mysqli_num_rows($resultFoodCount) ;
-   if(isset($_SESSION['login_user1'])){
-    $RUsername=$_SESSION['login_user1'];
-    $R_id;
-    $sqlRId="Select * from restaurant where username='$RUsername' ";     
-     $resultRId = mysqli_query($conn, $sqlRId);
-     if(mysqli_num_rows($resultRId)>0){
-         while($rowIdR = mysqli_fetch_assoc($resultRId)){
-             $R_id=$rowIdR['r_id'];
-         }
-     }
-     $sqlResFoodcount="Select * from food where r_id='$R_id'";
-    $resultResFoodCount = mysqli_query($conn, $sqlResFoodcount);
-    $foodCountRes= mysqli_num_rows($resultResFoodCount) ;
-   }
+   
 if(isset($_SESSION['login_user1'])){
     $Uname=$_SESSION['login_user1'];
     $r_id;
@@ -148,6 +135,7 @@ if(isset($_SESSION['login_user1'])){
     
     $sql = "SELECT * FROM food WHERE options = 'Enable' and r_id='$r_id' ORDER BY f_id";
     $result = mysqli_query($conn, $sql);
+    $foodCountRes=  mysqli_num_rows($result);
 ?>
      <h3 style="text-align: center;color: #ff6900;margin-top: 1rem">Restaurant <?php echo $r_name;?></h3>
 <!-- Display all Food from food table -->
@@ -169,7 +157,7 @@ else if (isset($_SESSION['login_user2'])) {
     
     $sql = "SELECT * FROM food WHERE options = 'Enable' and type='$type' ORDER BY f_id";
     $result = mysqli_query($conn, $sql);
-    
+    $foodCount=  mysqli_num_rows($result);
     
   ?>
   <h3 style="text-align: center;margin-top: 1rem;color: #ff6900;text-transform: capitalize ">Hello <?php echo $name_user;?></h3>
@@ -265,12 +253,12 @@ else
 <div class="container" style="margin-top: 3rem;margin-bottom: 3rem">
     <div class="">
       <center>
-          <?php if($foodCountRes==0){ ?>
+          <?php if($foodCountRes==0 && isset($_SESSION['login_user1'])){ ?>
            <label style="margin-left: 5px;color: red;"> <h1> No food added to your Restaurant.</h1> </label>
           <p>Add Food Items...!</p><?php }?>
           <?php if($foodCount==0 && isset($_SESSION['login_user2'])){?>
          <label style="margin-left: 5px;color: red;"> <h1>Oops! No food is available.</h1> </label>
-          <p>Stay Hungry...! :P</p><?php }?>
+         <?php }?>
       </center>
        
     </div>
