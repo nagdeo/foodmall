@@ -22,6 +22,10 @@ $user;
             alert("Please Select Preference");
             return false;
            }
+           if(formname.contact.value.length!=10){
+               alert("Contact Should be of 10 digits");
+               return false;
+           }
              
       }
       
@@ -89,7 +93,8 @@ $user;
           <div class="form-group col-xs-12">
             <label for="contact"><span class="text-danger" style="margin-right: 5px;">*</span> Contact: </label>
             <div class="">
-              <input class="form-control" id="contact" type="text" name="contact" placeholder="Contact" required pattern="[1-9]{1}[0-9]{9}">
+              <input class="form-control" id="contact" onKeyPress="if(this.value.length===10) return false;"
+                     type="text" name="contact" placeholder="Contact" required >
               
               
             </div>           

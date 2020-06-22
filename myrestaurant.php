@@ -7,6 +7,17 @@
   <link rel="stylesheet" type = "text/css" href ="css/bootstrap.min.css">
   <script type="text/javascript" src="js/jquery.min.js"></script>
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script>
+    
+      function checkForm(){
+           if(formname.contact.value.length!=10){
+               alert("Contact Should be of 10 digits");
+               return false;
+           }
+             
+      }
+      
+  </script>
 
   <body>
        <nav class="navbar navbar-inverse navbar-fixed-top navigation-clean-search" role="navigation">
@@ -34,7 +45,7 @@
           <div class="panel-heading" style="background-color: darkolivegreen;"> Create Account </div>
         <div class="panel-body">
           
-            <form role="form" action="myrestaurant1.php" method="POST">
+            <form role="form" name="formname" onsubmit="return checkForm()" action="myrestaurant1.php" method="POST">
          
           <div class="row">
           <div class="form-group col-xs-12">
@@ -68,7 +79,8 @@
           <div class="form-group col-xs-12">
             <label for="contact"><span class="text-danger" style="margin-right: 5px;">*</span> Contact: </label>
             <div class="">
-              <input class="form-control" id="contact" type="text" name="contact" placeholder="Contact" required="">
+              <input class="form-control" id="contact" type="text" name="contact" 
+                     placeholder="Contact" required="" onKeyPress="if(this.value.length===10) return false;">
              
             </div>           
           </div>

@@ -19,10 +19,26 @@ $conn = Connect();
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <style>
+      @media all and (max-width: 1199px) and (min-width: 200px) {
+          .displayNoneLess1200{
+              display: none;
+          }
+          .displayNoneMore1200{
+              display: block;
+          }
+          
+       }
+      @media screen and (min-width: 1200px) {
+           .displayNoneMore1200{
+              display: none;
+           }
+      }
+  </style>
 </head>
 <body>
-
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <div class="displayNoneMore1200" style="text-align:center;padding: 6rem 2rem;">Screen size is too less for this website, Screen size should be 1200 or above.</div>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark displayNoneLess1200">
   <!-- Brand -->
   <a class="navbar-brand" href="#">FoodMall</a>
 
@@ -84,11 +100,11 @@ else {
 }
 ?>
 </nav>
- <marquee width="100%" direction="left" height="30px" style="background: black;color:white;padding:5px 0px;">
+ <marquee width="100%" direction="left" class="displayNoneLess1200" height="30px" style="background: black;color:white;padding:5px 0px;">
   Only Cash on Delivery is Available, Order By Click on Order Button directly.
 </marquee>
 
-<div id="carouselExampleInterval" class="carousel slide" data-ride="carousel" style="margin-top: -0.4rem; ">
+<div id="carouselExampleInterval" class="carousel slide displayNoneLess1200" data-ride="carousel" style="margin-top: -0.4rem; ">
   <div class="carousel-inner">
       <div class="carousel-item active" style="height: 25rem;" data-interval="10000">
         <img src="images/slide001.jpg" class="d-block w-100" alt="...">
@@ -111,7 +127,7 @@ else {
 </div>
     
     
- <div class="container" style="width:95%;">
+ <div class="container displayNoneLess1200" style="width:95%;">
  <?php
  $sql;
  $result;
@@ -169,7 +185,7 @@ else if (isset($_SESSION['login_user2'])) {
  }
 }
 else {
-echo "<h3 style='text-align:center;margin-top:1rem;'>Food</h3>";
+echo "<h3 style='text-align:center;margin-top:1rem;'>Menu</h3>";
 $sql = "SELECT * FROM food WHERE options = 'Enable' ORDER BY f_id";
 $result = mysqli_query($conn, $sql);
 }
@@ -252,7 +268,7 @@ if($count==4)
 else
 {
   ?>
-<div class="container" style="margin-top: 3rem;margin-bottom: 3rem">
+<div class="container displayNoneLess1200" style="margin-top: 3rem;margin-bottom: 3rem">
     <div class="">
       <center>
           <?php if($foodCountRes==0 && isset($_SESSION['login_user1'])){ ?>
@@ -273,7 +289,7 @@ else
 ?>
 
 <!-- Footer -->
-<footer class="page-footer font-small blue" style="background: black;margin-top:2rem;color: white">
+<footer class="page-footer font-small blue displayNoneLess1200" style="background: black;margin-top:2rem;color: white">
 
   <!-- Copyright -->
   <div class="footer-copyright text-center py-3">&copy; 2020 Copyright:
