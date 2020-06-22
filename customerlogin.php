@@ -17,17 +17,19 @@ header("location: index.php");
            text-align: center;
           color: white;
          }
+        
     </style>
   </head>
   
 
-  <link rel="stylesheet" type = "text/css" href ="css/managerlogin.css">
+  <link rel="stylesheet" type = "text/css" href ="css/mediaQuery.css">
   <link rel="stylesheet" type = "text/css" href ="css/bootstrap.min.css">
   <script type="text/javascript" src="js/jquery.min.js"></script>
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
   
   <body >
-    
+   <div class="displayNoneMore1200" style="text-align:center;padding: 6rem 2rem;font-size: 3.5rem">Screen size is too less for this website, Screen size should be 1200 or above.</div>
+   <div class="displayNoneLess1200"> 
 
     <nav class="navbar navbar-inverse navbar-fixed-top navigation-clean-search" role="navigation">
       <div class="container">
@@ -101,16 +103,8 @@ header("location: index.php");
     </div>
   </div>
     
-      
-<!--   <footer class="page-footer font-small blue" style="background: black;margin-top:2rem;color: white;position:absolute;bottom: 0px ;padding: 15px 0px;width: 100%;">
+   </div>  
 
-   Copyright 
-    <div class="footer-copyright text-center py-3">&copy; 2020 Copyright:
-     Simran Nagdeo
-    </div>
-   Copyright 
-
-    </footer>-->
       
     </body>
 </html>

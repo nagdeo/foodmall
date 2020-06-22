@@ -1,0 +1,14 @@
+@media all and (max-width: 1199px) and (min-width: 200px) {
+          .displayNoneLess1200{
+              display: none;
+          }
+          .displayNoneMore1200{
+              display: block;
+          }
+          
+       }
+      @media screen and (min-width: 1200px) {
+           .displayNoneMore1200{
+              display: none;
+           }
+      }

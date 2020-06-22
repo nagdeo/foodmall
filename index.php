@@ -14,27 +14,10 @@ $conn = Connect();
   <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type = "text/css" href ="css/bootstrap-4.5.0-dist/css/bootstrap.min.css">
   <script type="text/javascript" src="js/jquery.min.js"></script>
-  <script type="text/javascript" src=" js/bootstrap.min.js"></script>
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+   <link rel="stylesheet" type = "text/css" href ="css/mediaQuery.css">
+   <script type="text/javascript" src=" js/jquery.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-  <style>
-      @media all and (max-width: 1199px) and (min-width: 200px) {
-          .displayNoneLess1200{
-              display: none;
-          }
-          .displayNoneMore1200{
-              display: block;
-          }
-          
-       }
-      @media screen and (min-width: 1200px) {
-           .displayNoneMore1200{
-              display: none;
-           }
-      }
-  </style>
+  
 </head>
 <body>
     <div class="displayNoneMore1200" style="text-align:center;padding: 6rem 2rem;">Screen size is too less for this website, Screen size should be 1200 or above.</div>

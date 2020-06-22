@@ -1,9 +1,10 @@
 <html>
 <head>
     <title> Restaurant SignUp </title>
+    
   </head>
 
-  
+  <link rel="stylesheet" type = "text/css" href ="css/mediaQuery.css">
   <link rel="stylesheet" type = "text/css" href ="css/bootstrap.min.css">
   <script type="text/javascript" src="js/jquery.min.js"></script>
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
@@ -20,6 +21,8 @@
   </script>
 
   <body>
+   <div class="displayNoneMore1200" style="text-align:center;padding: 6rem 2rem;font-size: 3.5rem">Screen size is too less for this website, Screen size should be 1200 or above.</div>
+   <div class="displayNoneLess1200">
        <nav class="navbar navbar-inverse navbar-fixed-top navigation-clean-search" role="navigation">
       <div class="container">
         <div class="navbar-header">
@@ -128,6 +131,7 @@
     
    </div>
       
+   </div>    
  
   </body>
 </html>

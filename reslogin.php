@@ -11,12 +11,7 @@ header("location: addFood.php");
 
   <head>
     <title> Restaurant Login </title>
-    <style>
-        .container1 {
-          position: relative;
-           text-align: center;
-          color: white;
-         }
+  <link rel="stylesheet" type = "text/css" href ="css/mediaQuery.css">
     </style>
   </head>
   
@@ -27,7 +22,8 @@ header("location: addFood.php");
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
 
   <body >
-    
+   <div class="displayNoneMore1200" style="text-align:center;padding: 6rem 2rem;font-size: 3.5rem">Screen size is too less for this website, Screen size should be 1200 or above.</div>
+   <div class="displayNoneLess1200"> 
 
     <nav class="navbar navbar-inverse navbar-fixed-top navigation-clean-search" role="navigation">
       <div class="container">
@@ -94,7 +90,7 @@ header("location: addFood.php");
     </div>
     </div>
   </div>
-    
+   </div> 
       
     </body>
 </html>
