@@ -132,8 +132,8 @@ header("location: customerlogin.php");
       if (mysqli_num_rows($resultOrders) > 0)
       {
       ?>
-      <div class="container">
-           <table id="t01" style="margin-top: 1rem;">
+      <div class="container" style="padding-bottom:5rem;">
+           <table id="t01" style="margin-top: 10rem;">
              <tr>
                  <th>Food</th>
                  <th>price</th> 

@@ -39,7 +39,7 @@ if(isset($_SESSION['login_user1'])){
       <li style="margin-right: 1rem;"><a href="#" style="color: white;">Welcome <?php echo $_SESSION['login_user1']; ?> </a></li>
       <li style="margin-right: 1rem;"><a href="addFood.php" style="color: white;">Add food</a></li>
       <li style="margin-right: 1rem;"><a href="RestaurantOrder.php" style="color: white;">View Orders</a></li>
-            <li><a href="logout_m.php" style="color: white;"> Log Out </a></li>
+            <li><a href="logout_r.php" style="color: white;"> Log Out </a></li>
           </ul>
 <?php
 }
@@ -168,7 +168,10 @@ else if (isset($_SESSION['login_user2'])) {
  }
 }
 else {
-echo "<h3 style='text-align:center;margin-top:1rem;'>Menu</h3>";
+    if($foodCount>0 || $foodCountRes>0){
+    echo "<h3 style='text-align:center;margin-top:1rem;'>Menu</h3>";}else{
+        echo "<h3 style='text-align:center;margin-top:1rem;'>Oops No food Available!!</h3>";
+    }
 $sql = "SELECT * FROM food WHERE options = 'Enable' ORDER BY f_id";
 $result = mysqli_query($conn, $sql);
 }

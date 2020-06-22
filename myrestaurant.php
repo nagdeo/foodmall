@@ -79,7 +79,7 @@ $conn = Connect();
           <div class="panel-heading" style="background-color: darkolivegreen;"> Create Account </div>
         <div class="panel-body">
           
-            <form role="form" name="formname" onsubmit="return checkForm()" action="myrestaurant1.php" method="POST">
+            <form role="form" name="formname" onsubmit="return checkForm()" action="" method="POST">
          
           <div class="row">
           <div class="form-group col-xs-12">

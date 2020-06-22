@@ -52,7 +52,7 @@ header('Location: reslogin.php');
           <ul class="nav navbar-nav navbar-right">
               <li><a href="#" style="color:white;text-transform: capitalize;">Welcome <?php echo $login_session; ?> </a></li>
           
-            <li><a href="logout_m.php">Log Out </a></li>
+            <li><a href="logout_r.php">Log Out </a></li>
           </ul>
         </div>
 

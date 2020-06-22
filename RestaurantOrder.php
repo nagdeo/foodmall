@@ -103,7 +103,7 @@ if(isset($_SESSION['login_user1'])){
           <ul class="nav navbar-nav navbar-right">
               <li><a href="#" style="color:white"> Welcome <?php echo $_SESSION['login_user1']; ?> </a></li>
             
-            <li><a href="logout_m.php"></span> Log Out </a></li>
+            <li><a href="logout_r.php"></span> Log Out </a></li>
           </ul>
 <?php
 }
