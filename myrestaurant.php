@@ -1,3 +1,34 @@
+<?php
+  $error='';
+  require 'connection.php';
+$conn = Connect();
+   if($_SERVER["REQUEST_METHOD"]=="POST"){
+       $fullname = $conn->real_escape_string($_POST['fullname']);
+       $username = $conn->real_escape_string($_POST['username']);
+       $email = $conn->real_escape_string($_POST['email']);
+       $contact = $conn->real_escape_string($_POST['contact']);
+       $address = $conn->real_escape_string($_POST['address']);
+       $password = $conn->real_escape_string($_POST['password']);
+        $sqlUser="Select * from restaurant where username='$username'";
+          $result1 = mysqli_query($conn, $sqlUser);
+          if (mysqli_num_rows($result1) > 0)
+          {
+             $error='Username already Exist'; 
+          }
+          else{
+              $query = "INSERT into restaurant(name,email,username,contact,address,password) VALUES('" . $fullname . "','" . $email . "','" . $username . "','" . $contact . "','" . $address ."','" . $password ."')";
+              $success = $conn->query($query);
+              if (!$success){
+	        die("Couldnt enter data: ".$conn->error);
+               }else{
+                   header("location: myrestaurant1.php"); 
+               }
+
+          }
+       
+       $conn->close();
+   }
+?>
 <html>
 <head>
     <title> Restaurant SignUp </title>

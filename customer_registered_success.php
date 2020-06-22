@@ -1,6 +1,4 @@
-<?php 
-  $error='';
-?>
+
 <html>
 
   <head>
@@ -10,6 +8,7 @@
              color: white;
         }
     </style>
+    <link rel="stylesheet" type = "text/css" href ="css/mediaQuery.css">
   </head>
 
   <script type="text/javascript" src="js/jquery.min.js"></script>
@@ -33,47 +32,10 @@
     </li>
   </div>
 </nav>
-<?php
-
-require 'connection.php';
-$conn = Connect();
-
-$fullname = $conn->real_escape_string($_POST['fullname']);
-$username = $conn->real_escape_string($_POST['username']);
-$email = $conn->real_escape_string($_POST['email']);
-$contact = $conn->real_escape_string($_POST['contact']);
-$address = $conn->real_escape_string($_POST['address']);
-$password = $conn->real_escape_string($_POST['password']);
-$preference=$conn->real_escape_string($_POST['pref']);
-         $yes="false";
-          
-         $sqlUser="Select * from customer where username='$username'";
-          $result1 = mysqli_query($conn, $sqlUser);
-         
-         if (mysqli_num_rows($result1) > 0)
-          {
-             header("location: usernameExist.html");
-             return;
-          }
-          else{
-         
-$query = "INSERT into customer(name,username,email,contact,address,password,pref) VALUES('" . $fullname . "','" . $username . "','" . $email . "','" . $contact . "','" . $address ."','" . $password ."','" . $preference ."')";
-$register = $conn->query($query);
-
-if (!$register){
-	die("Couldnt enter data: ".$conn->error);
-}
-          
-
-}
-$conn->close();
-
-?>
-
 
 <div class="container">
 	<div class="" style="text-align: center;margin-top: 14rem;">
-		<h2> <?php echo "Welcome $fullname!" ?> </h2>
+		<h2>  Welcome </h2>
 		<h1>Your account has been created.</h1>
 		<p>Login Now from <a href="customerlogin.php">here</a></p>
 	</div>

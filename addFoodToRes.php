@@ -1,6 +1,6 @@
 <?php
 
-include('session_m.php');
+include('session_r.php');
 
 if(!isset($login_session)){
 header('Location: reslogin.php'); 

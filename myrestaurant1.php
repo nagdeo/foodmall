@@ -26,33 +26,11 @@
     </li>
   </div>
 </nav>
-<?php
-
-require 'connection.php';
-$conn = Connect();
-
-$fullname = $conn->real_escape_string($_POST['fullname']);
-$username = $conn->real_escape_string($_POST['username']);
-$email = $conn->real_escape_string($_POST['email']);
-$contact = $conn->real_escape_string($_POST['contact']);
-$address = $conn->real_escape_string($_POST['address']);
-$password = $conn->real_escape_string($_POST['password']);
-
-$query = "INSERT into restaurant(name,email,username,contact,address,password) VALUES('" . $fullname . "','" . $email . "','" . $username . "','" . $contact . "','" . $address ."','" . $password ."')";
-$success = $conn->query($query);
-
-if (!$success){
-	die("Couldnt enter data: ".$conn->error);
-}
-
-$conn->close();
-
-?>
 
 
 <div class="container">
 	<div class="" style="text-align: center;margin-top: 14rem">
-		<h2> <?php echo "Welcome $fullname!" ?> </h2>
+		<h2> Welcome  </h2>
 		<h1>Your account has been created.</h1>
                 <p>Login Now from <a href="reslogin.php">here</a></p>
 	</div>

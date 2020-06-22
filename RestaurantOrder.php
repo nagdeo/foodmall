@@ -11,60 +11,61 @@ header("location: resLogin.php");
 
   <head>
     <title> Restaurant Orders </title>
+    <link rel="stylesheet" type = "text/css" href ="css/mediaQuery.css">
     <style>
-        
+       
         table {
-  width:100%;
-}
-table, th, td {
-  border: 1px solid black;
-  border-collapse: collapse;
-}
-th, td {
-  padding: 15px;
-  text-align: left;
-}
-#t01 tr:nth-child(even) {
-  background-color: #eee;
-}
-#t01 tr:nth-child(odd) {
- background-color: #fff;
-}
-#t01 th {
-  background-color: black;
-  color: white;
- text-align: center;
-    padding: 10px 0px;
-}
-#t01 td {
- text-transform: capitalize;
-  text-align: center;
-    padding: 10px 0px;
-}
-.face:hover {
-  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
-  transform: translate3d(0, 0, 0);
-  backface-visibility: hidden;
-  perspective: 1000px;
-}
+          width:100%;
+        }
+        table, th, td {
+           border: 1px solid black;
+           border-collapse: collapse;
+         }
+         th, td {
+            padding: 15px;
+            text-align: left;
+          }
+        #t01 tr:nth-child(even) {
+           background-color: #eee;
+        }
+         #t01 tr:nth-child(odd) {
+             background-color: #fff;
+         }
+        #t01 th {
+          background-color: black;
+          color: white;
+          text-align: center;
+          padding: 10px 0px;
+        }
+        #t01 td {
+          text-transform: capitalize;
+          text-align: center;
+          padding: 10px 0px;
+         }
+        .face {
+           animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+           transform: translate3d(0, 0, 0);
+           backface-visibility: hidden;
+           perspective: 1000px;
+         }
 
-@keyframes shake {
-  10%, 90% {
-    transform: translate3d(-1px, 0, 0);
-  }
+         @keyframes shake {
+            10%, 90% {
+            transform: translate3d(-1px, 0, 0);
+         }
   
-  20%, 80% {
-    transform: translate3d(2px, 0, 0);
-  }
+         20%, 80% {
+          transform: translate3d(2px, 0, 0);
+          }
 
-  30%, 50%, 70% {
-    transform: translate3d(-4px, 0, 0);
-  }
+         30%, 50%, 70% {
+           transform: translate3d(-4px, 0, 0);
+         }
 
-  40%, 60% {
-    transform: translate3d(4px, 0, 0);
-  }
-}
+          40%, 60% {
+             transform: translate3d(4px, 0, 0);
+          }
+        }
     </style>
   </head>
 
@@ -106,21 +107,7 @@ if(isset($_SESSION['login_user1'])){
           </ul>
 <?php
 }
-else if (isset($_SESSION['login_user2'])) {
-  ?>
-           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Welcome <?php echo $_SESSION['login_user2']; ?> </a></li>
-           
-            <li><a href="logout_u.php"><span class="glyphicon glyphicon-log-out"></span> Log Out </a></li>
-          </ul>
-  <?php        
-}
-
-  ?>
-
-
-
-
+?>
         </div>
 
       </div>
@@ -148,8 +135,8 @@ else if (isset($_SESSION['login_user2'])) {
       if (mysqli_num_rows($resultOrders) > 0)
       {
       ?>
-      <div class="container">
-           <table id="t01" style="margin-top: 1rem;">
+      <div class="container" style="padding-bottom:5rem;">
+           <table id="t01" style="margin-top: 10rem;">
              <tr>
                  <th>Food</th>
                  <th>price</th> 

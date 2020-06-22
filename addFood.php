@@ -1,5 +1,5 @@
 <?php
-include('session_m.php');
+include('session_r.php');
 
 if(!isset($login_session)){
 header('Location: reslogin.php'); 
@@ -87,20 +87,25 @@ header('Location: reslogin.php');
                 <option>images/burger.jpg</option>
                 <option>images/frenchfries.jpg</option>
                 <option>images/Pizza.jpg</option>
-                <option>images/puff.jpg</option
+                <option>images/puff.jpg</option>
+                <option>images/nonveg_biryani.jpg</option>
+                <option>images/vegThali.jpg</option>
                 <option>images/Spring_Rolls.jpg</option>
                 <option>images/tea.jpg</option>
                 <option>images/Masala_Paneer_Roll.jpg</option>
+                <option>images/biryani_chicken.jpg</option>
+                <option>images/butterChicken.jpg</option>
+                <option>images/fried_chicken.jpg</option>
                 <option>images/roll.jpg</option> 
                 <option>images/Chicken_Burger.jpg</option>
                 <option>images/paneer_pakora.jpg</option>
                 <option>images/samosa.jpg</option>
                 <option>images/Pakora.jpg</option>  
                 <option>images/Chocolate_Golgappe.jpg</option>
-                <option>images/Chocolate_Golgappe.jpg</option>
-                <option>images/Chocolate_Golgappe.jpg</option>
-                <option>images/Chocolate_Golgappe.jpg</option>
-                <option>images/Chocolate_Golgappe.jpg</option>
+                <option>images/Pizza_nonVeg.jpg</option>
+                <option>images/nonveg_momos.jpg</option>
+                <option>images/nonveg_curry.jpg</option>
+                <option>images/nonveg_biryani.jpg</option>
             </select>
           </div>
           <div class="form-group col-xs-12">

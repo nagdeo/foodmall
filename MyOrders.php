@@ -11,36 +11,61 @@ header("location: customerlogin.php");
 
   <head>
     <title> My Orders </title>
+    <link rel="stylesheet" type = "text/css" href ="css/mediaQuery.css">
     <style>
         
         table {
-  width:100%;
-}
-table, th, td {
-  border: 1px solid black;
-  border-collapse: collapse;
-}
-th, td {
-  padding: 15px;
-  text-align: left;
-}
-#t01 tr:nth-child(even) {
-  background-color: #eee;
-}
-#t01 tr:nth-child(odd) {
- background-color: #fff;
-}
-#t01 th {
-  background-color: black;
-  color: white;
-  text-align: center;
-    padding: 10px 0px;
-}
-#t01 td {
- text-transform: capitalize;
-  text-align: center;
-    padding: 10px 0px;
-}
+          width:100%;
+         }
+        table, th, td {
+          border: 1px solid black;
+          border-collapse: collapse;
+        }
+        th, td {
+          padding: 15px;
+          text-align: left;
+        }
+         #t01 tr:nth-child(even) {
+          background-color: #eee;
+         }
+        #t01 tr:nth-child(odd) {
+           background-color: #fff;
+        }
+        #t01 th {
+          background-color: black;
+          color: white;
+          text-align: center;
+          padding: 10px 0px;
+        }
+        #t01 td {
+           text-transform: capitalize;
+           text-align: center;
+           padding: 10px 0px;
+        }
+        .face {
+          animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+          transform: translate3d(0, 0, 0);
+          backface-visibility: hidden;
+          perspective: 1000px;
+         }
+
+         @keyframes shake {
+         10%, 90% {
+           transform: translate3d(-1px, 0, 0);
+         }
+  
+         20%, 80% {
+            transform: translate3d(2px, 0, 0);
+          }
+
+        30%, 50%, 70% {
+            transform: translate3d(-4px, 0, 0);
+        }
+
+        40%, 60% {
+            transform: translate3d(4px, 0, 0);
+        }
+       }
 
     </style>
   </head>
@@ -56,12 +81,7 @@ th, td {
     <nav class="navbar navbar-inverse navbar-fixed-top navigation-clean-search" role="navigation">
       <div class="container">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
+          
             <a class="navbar-brand" style="color:white;" href="index.php">FoodMall</a>
         </div>
 
@@ -71,18 +91,8 @@ th, td {
           </ul>
 
 <?php
-if(isset($_SESSION['login_user1'])){
 
-?>
-
-
-          <ul class="nav navbar-nav navbar-right">
-              <li><a href="#" style="color:white;">Welcome <?php echo $_SESSION['login_user1']; ?> </a></li>
-            <li><a href="logout_m.php">Log Out </a></li>
-          </ul>
-<?php
-}
-else if (isset($_SESSION['login_user2'])) {
+      if (isset($_SESSION['login_user2'])) {
   ?>
            <ul class="nav navbar-nav navbar-right">
                <li><a href="#" style="color:white;"> Welcome <?php echo $_SESSION['login_user2']; ?> </a></li>
@@ -153,8 +163,10 @@ else if (isset($_SESSION['login_user2'])) {
           
       } else{
       ?>
-      <p>There are no orders</p>
-      <?php }?>
+      <div class="face" style="width: 100%;text-align: center;font-size: 2rem;height: 100%;color: darkolivegreen">
+         <p style="font-size: 3rem;text-align: center;margin-top: 20rem;">There are no orders</p>
+      </div>    
+  <?php }?>
       
     </body>
 </html>

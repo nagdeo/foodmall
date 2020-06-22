@@ -1,7 +1,35 @@
 <?php
-include('login_u.php');
+  $error='';
+  require 'connection.php';
+$conn = Connect();
+   if($_SERVER["REQUEST_METHOD"]=="POST"){
+       $fullname = $conn->real_escape_string($_POST['fullname']);
+$username = $conn->real_escape_string($_POST['username']);
+$email = $conn->real_escape_string($_POST['email']);
+$contact = $conn->real_escape_string($_POST['contact']);
+$address = $conn->real_escape_string($_POST['address']);
+$password = $conn->real_escape_string($_POST['password']);
+$preference=$conn->real_escape_string($_POST['pref']);
 
-$user;
+
+ $sqlUser="Select * from customer where username='$username'";
+          $result1 = mysqli_query($conn, $sqlUser);
+          if (mysqli_num_rows($result1) > 0)
+          {
+             $error='Username already Exist';
+            
+          }
+          else{
+              $query = "INSERT into customer(name,username,email,contact,address,password,pref) VALUES('" . $fullname . "','" . $username . "','" . $email . "','" . $contact . "','" . $address ."','" . $password ."','" . $preference ."')";
+$register = $conn->query($query);
+                       if (!$register){
+	die("Couldnt enter data: ".$conn->error);
+              }else{
+                  header("location: customer_registered_success.php"); 
+              }
+          }
+          $conn->close();
+   }
 ?>
 <html>
 <head>
@@ -61,8 +89,8 @@ $user;
           <div class="panel-heading" style="background-color: darkolivegreen;"> Create Account </div>
         <div class="panel-body">
           
-            <form name="formname" onsubmit="return checkForm()" action="customer_registered_success.php" method="POST">
-         
+            <form name="formname" onsubmit="return checkForm()" action="" method="POST">
+          <label style="margin-left: 5px;color: red;"><span> <?php echo $error;  ?> </span></label>
           <div class="row">
           <div class="form-group col-xs-12">
             <label for="fullname"><span class="text-danger" style="margin-right: 5px;">*</span> Full Name: </label>
@@ -137,7 +165,7 @@ $user;
         </div>
 
         
-        <label style="margin-left: 5px;color: red;"><span> <?php echo $error;  ?> </span></label>
+       
         <div class="row">
           <div class="form-group col-xs-4">
               <button class="btn " style="background-color: darkolivegreen;color:white;" type="submit" >Submit</button>

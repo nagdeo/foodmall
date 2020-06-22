@@ -193,7 +193,7 @@ if (mysqli_num_rows($result) > 0)
 <div class="col-md-3">
 
     <form method="post" action="order.php?action=add&id=<?php echo $row['f_id']; ?>&Rid=<?php echo $row['r_id']; ?>">
-<div class="mypanel card" align="center">
+        <div class="mypanel card" style="text-transform: capitalize;border-radius: 5px" align="center">
     <img src="<?php echo $row["images"]; ?>" style="height: 120px;width:100%" class="img-responsive">
     <h4 class="text-dark"><?php echo $R_Name; ?></h4>
 <h4 class="text-dark"><?php echo $row["name"]; ?></h4>
