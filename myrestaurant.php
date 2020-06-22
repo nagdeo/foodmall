@@ -80,7 +80,7 @@ $conn = Connect();
         <div class="panel-body">
           
             <form role="form" name="formname" onsubmit="return checkForm()" action="" method="POST">
-         
+           <label style="margin-left: 5px;color: red;"><span> <?php echo $error;  ?> </span></label>
           <div class="row">
           <div class="form-group col-xs-12">
             <label for="fullname"><span class="text-danger" style="margin-right: 5px;">*</span> Restaurant Name: </label>

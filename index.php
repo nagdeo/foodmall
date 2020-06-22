@@ -17,7 +17,17 @@ $conn = Connect();
    <link rel="stylesheet" type = "text/css" href ="css/mediaQuery.css">
    <script type="text/javascript" src=" js/jquery.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-  
+  <style>
+      .textellipsis{
+            white-space: nowrap; 
+  width: 16rem; 
+  overflow: hidden;
+  text-overflow: ellipsis; 
+  text-align: center;
+  padding: 0rem 1rem;
+      }
+      </style>
+      
 </head>
 <body>
     <div class="displayNoneMore1200" style="text-align:center;padding: 6rem 2rem;">Screen size is too less for this website, Screen size should be 1200 or above.</div>
@@ -198,10 +208,10 @@ if (mysqli_num_rows($result) > 0)
     <form method="post" action="order.php?action=add&id=<?php echo $row['f_id']; ?>&Rid=<?php echo $row['r_id']; ?>">
         <div class="mypanel card" style="text-transform: capitalize;border-radius: 5px" align="center">
     <img src="<?php echo $row["images"]; ?>" style="height: 120px;width:100%" class="img-responsive">
-    <h4 class="text-dark"><?php echo $R_Name; ?></h4>
-<h4 class="text-dark"><?php echo $row["name"]; ?></h4>
-<h5 class="text-info"><?php echo $row["description"]; ?></h5>
-<h5 class="text-danger">&#8377; <?php echo $row["price"]; ?>/-</h5>
+    <h4 class="text-dark textellipsis"><?php echo $R_Name; ?></h4>
+<h4 class="text-dark textellipsis"><?php echo $row["name"]; ?></h4>
+<h5 class="text-info textellipsis"><?php echo $row["description"]; ?></h5>
+<h5 class="text-danger textellipsis">&#8377; <?php echo $row["price"]; ?></h5>
 <h5 class="text-info">Quantity: <input type="number" min="1" max="25" name="quantity" class="form-control" value="1" style="width: 60px;"> </h5>
 <input type="hidden" name="hidden_name" value="<?php echo $row["name"]; ?>">
 <input type="hidden" name="hidden_price" value="<?php echo $row["price"]; ?>">

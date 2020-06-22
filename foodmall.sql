@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 21, 2020 at 03:30 PM
+-- Generation Time: Jun 22, 2020 at 08:21 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -29,11 +29,11 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `customer` (
-  `cust_id` int(11) NOT NULL,
+  `cust_id` int(30) NOT NULL,
   `name` text NOT NULL,
   `username` text NOT NULL,
   `email` text NOT NULL,
-  `contact` int(15) NOT NULL,
+  `contact` varchar(30) NOT NULL,
   `address` text NOT NULL,
   `password` text NOT NULL,
   `pref` varchar(15) NOT NULL
@@ -44,67 +44,7 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`cust_id`, `name`, `username`, `email`, `contact`, `address`, `password`, `pref`) VALUES
-(1, 'hhgvh', 'bkj', 'gbkuh@gvjh', 76543456, '0', '66', 'Veg'),
-(2, 'bhj', 'cxv', 'dvd@bk', 98767844, '0', 'hhh', 'Non-Veg'),
-(3, 'fgttbt', 'tgbt', 'btrg@hn', 2147483647, 'hyf', 'a1', 'Veg'),
-(4, 'fvf', 'v', 'v@fbgdb', 4567876, 'y', 'aa', 'Veg'),
-(5, 'fvf', 'v', 'v@fbgdb', 4567876, 'y', 'aa', 'Veg'),
-(6, 'bm', 'bhn', 'bhjb@vkh', 4567876, 'bkj', 'rr', 'Non-Veg'),
-(7, 'bm', 'bhn', 'bhjb@vkh', 4567876, 'bkj', 'rr', 'Non-Veg'),
-(8, 'bkj', 'bj', 'gvujg@djh', 56786787, 'nvjhb', 'bhkjh', 'Non-Veg'),
-(9, 'Chanchal Amarwani', 'ef', 'chanchal.amarwani1001@gmail.com', 76543456, 'saiheritage@gmail.com', 'saidutta@123', 'Non-Veg'),
-(10, 'sfc', 'dd', 'dcds@gmai', 2147483647, 'ddd', 'dd', 'Veg'),
-(11, 'Chanchal Amarwani', 'fce', 'chanchal.amarwani1001@gmail.com', 98767844, 'Gurunanak Nagar,Sindhi Colony,Wani', 'j', 'Non-Veg'),
-(12, 'ss', 's', 'chanchal.amarwani1001@gmail.com', 4567876, 'Gurunanak Nagar,Sindhi Colony,Wani', 's', 'Veg'),
-(13, 'Chanchal Amarwani', 'bkj', 'chanchal.amarwani1001@gmail.com', 4567876, 'admin@gmail.com', 'ADMIN', 'Veg'),
-(14, 'Chanchal Amarwani', 'saiheritage@gmail.com', 'chanchal.amarwani1001@gmail.com', 4567876, 'admin@gmail.com', 'ADMIN', 'Non-Veg'),
-(15, 'Chanchal Amarwani', 'saiheritage@gmail.com', 'chanchal.amarwani1001@gmail.com', 4567876, 'admin@gmail.com', 'ADMIN', 'Non-Veg'),
-(16, 'Chanchal Amarwani', 'bkj', 'chanchal.amarwani1001@gmail.com', 4567876, 'saiheritage@gmail.com', 'saidutta@123', ''),
-(17, 'Chanchal Amarwani', 'bkj', 'chanchal.amarwani1001@gmail.com', 4567876, 'admin@gmail.com', 'ADMIN', ''),
-(18, 'Chanchal Amarwani', 'bkj', 'chanchal.amarwani1001@gmail.com', 76543456, 'admin@gmail.com', 'ADMIN', ''),
-(19, 'Chanchal Amarwani', 'saiheritage@gmail.com', 'chanchal.amarwani1001@gmail.com', 4567876, 'Gurunanak Nagar,Sindhi Colony,Wani', 'saidutta@123', ''),
-(20, 'Chanchal Amarwani', 'saiheritage@gmail.com', 'chanchal.amarwani1001@gmail.com', 76543456, 'Gurunanak Nagar,Sindhi Colony,Wani', 'saidutta@123', ''),
-(21, 'Chanchal Amarwani', 'saiheritage@gmail.com', 'chanchal.amarwani1001@gmail.com', 4567876, 'Gurunanak Nagar,Sindhi Colony,Wani', 'saidutta@123', 'Veg'),
-(22, 'Chanchal Amarwani', 'saiheritage@gmail.com', 'chanchal.amarwani1001@gmail.com', 76543456, 'Gurunanak Nagar,Sindhi Colony,Wani', 'saidutta@123', 'Non-Veg'),
-(23, 'Chanchal Amarwani', 'saiheritage@gmail.com', 'chanchal.amarwani1001@gmail.com', 76543456, 'Gurunanak Nagar,Sindhi Colony,Wani', 'saidutta@123', 'Non-Veg'),
-(24, 'Chanchal Amarwani', 'saiheritage@gmail.com', 'chanchal.amarwani1001@gmail.com', 4567876, 'Gurunanak Nagar,Sindhi Colony,Wani', 'saidutta@123', ''),
-(25, 'Chanchal Amarwani', 'm', 'chanchal.amarwani1001@gmail.com', 4567876, 'Gurunanak Nagar,Sindhi Colony,Wani', 'saidutta@123', 'Veg'),
-(26, 'Chanchal Amarwani', 'saiheritage@gmail.com', 'chanchal.amarwani1001@gmail.com', 76543456, 'Gurunanak Nagar,Sindhi Colony,Wani', 'saidutta@123', 'Non-Veg'),
-(27, 'Chanchal Amarwani', 'saiheritage@gmail.com', 'chanchal.amarwani1001@gmail.com', 4567876, 'Gurunanak Nagar,Sindhi Colony,Wani', 'saidutta@123', 'Veg'),
-(28, 'Chanchal Amarwani', 'saiheritage@gmail.com', 'chanchal.amarwani1001@gmail.com', 4567876, 'Gurunanak Nagar,Sindhi Colony,Wani', 'saidutta@123', 'Veg'),
-(29, 'bj', 'saiheritage@gmail.com', 'nbkj@vyj', 2147483647, 'bkj', 'saidutta@123', 'Non-Veg'),
-(30, 'Chanchal Amarwani', 'saiheritage@gmail.com', 'chanchal.amarwani1001@gmail.com', 2147483647, 'Gurunanak Nagar,Sindhi Colony,Wani', 'saidutta@123', 'Veg'),
-(31, 'ssa', 'saiheritage@gmail.com', 'chanchal.amarwani1001@gmail.com', 2147483647, 'Gurunanak Nagar,Sindhi Colony,Wani', 'saidutta@123', 'Veg'),
-(32, 'x', 'saiheritage@gmail.com', 'chanchal.amarwani1001@gmail.com', 2147483647, 'Gurunanak Nagar,Sindhi Colony,Wani', 'saidutta@123', 'Non-Veg'),
-(33, 'Chanchal Amarwani', 'saiheritage@gmail.com', 'chanchal.amarwani1001@gmail.com', 2147483647, 'Gurunanak Nagar,Sindhi Colony,Wani', 'saidutta@123', 'Veg'),
-(34, 'Chanchal Amarwani', 'saiheritage@gmail.com', 'chanchal.amarwani1001@gmail.com', 2147483647, 'Gurunanak Nagar,Sindhi Colony,Wani', 'saidutta@123', 'Veg'),
-(35, 'Chanchal Amarwani', 'saiheritage@gmail.com', 'chanchal.amarwani1001@gmail.com', 2147483647, 'Gurunanak Nagar,Sindhi Colony,Wani', 'saidutta@123', ''),
-(36, 'Chanchal Amarwani', 'saiheritage@gmail.com', 'chanchal.amarwani1001@gmail.com', 2147483647, 'Gurunanak Nagar,Sindhi Colony,Wani', 'saidutta@123', ''),
-(37, 'Chanchal Amarwani', 'saiheritage@gmail.com', 'chanchal.amarwani1001@gmail.com', 2147483647, 'Gurunanak Nagar,Sindhi Colony,Wani', 'saidutta@123', ''),
-(38, 'Chanchal Amarwani', 'saiheritage@gmail.com', 'chanchal.amarwani1001@gmail.com', 2147483647, 'Gurunanak Nagar,Sindhi Colony,Wani', 'saidutta@123', 'Veg'),
-(39, 'Chanchal Amarwani', 'saiheritage@gmail.com', 'chanchal.amarwani1001@gmail.com', 2147483647, 'Gurunanak Nagar,Sindhi Colony,Wani', 'saidutta@123', 'Veg'),
-(40, 'as', 'saiheritage@gmail.com', 'chanchal.amarwani1001@gmail.com', 2147483647, 'Gurunanak Nagar,Sindhi Colony,Wani', 'saidutta@123', 'Veg'),
-(41, 'Chanchal Amarwani', 'saiheritage@gmail.com', 'chanchal.amarwani1001@gmail.com', 2147483647, 'Gurunanak Nagar,Sindhi Colony,Wani', 'saidutta@123', ''),
-(42, 'Chanchal Amarwani', 'saiheritage@gmail.com', 'chanchal.amarwani1001@gmail.com', 2147483647, 'Gurunanak Nagar,Sindhi Colony,Wani', 'saidutta@123', ''),
-(43, 'Chanchal Amarwani', 'saiheritage@gmail.com', 'chanchal.amarwani1001@gmail.com', 2147483647, 'Gurunanak Nagar,Sindhi Colony,Wani', 'saidutta@123', 'Veg'),
-(44, 'Chanchal Amarwani', 'saiheritage@gmail.com', 'chanchal.amarwani1001@gmail.com', 2147483647, 'Gurunanak Nagar,Sindhi Colony,Wani', 'saidutta@123', 'Veg'),
-(45, 'Chanchal Amarwani', 'saiheritage@gmail.com', 'chanchal.amarwani1001@gmail.com', 2147483647, 'Gurunanak Nagar,Sindhi Colony,Wani', 'saidutta@123', ''),
-(46, 'Chanchal Amarwani', 'saiheritag', 'chanchal.amarwani1001@gmail.com', 2147483647, 'Gurunanak Nagar,Sindhi Colony,Wani', '1', 'Non-Veg'),
-(47, 'Chanchal Amarwani', 'sai', 'chanchal.amarwani1001@gmail.com', 2147483647, 'Gurunanak Nagar,Sindhi Colony,Wani', 'saidutta@123', 'Veg'),
-(48, 'Chanchal Amarwani', 'sa', 'chanchal.amarwani1001@gmail.com', 2147483647, 'Gurunanak Nagar,Sindhi Colony,Wani', 'saidutta@123', 'Veg'),
-(49, 'Chanchal Amarwani', 'hh@gmail.com', 'chanchal.amarwani1001@gmail.com', 2147483647, 'Gurunanak Nagar,Sindhi Colony,Wani', 'saidutta@123', 'Veg'),
-(50, 'Chanchal Amarwani', 'saiheritag.com', 'chanchal.amarwani1001@gmail.com', 2147483647, 'Gurunanak Nagar,Sindhi Colony,Wani', 'saidutta@123', 'Veg'),
-(51, 'Chanchal Amarwani', 'vv.com', 'chanchal.amarwani1001@gmail.com', 2147483647, 'Gurunanak Nagar,Sindhi Colony,Wani', 'saidutta@123', 'Veg'),
-(52, 'Chanchal Amarwani', 'hhhj', 'chanchal.amarwani1001@gmail.com', 2147483647, 'Gurunanak Nagar,Sindhi Colony,Wani', 'saidutta@123', 'Veg'),
-(53, 'Chanchal Amarwani', 'aa', 'chanchal.amarwani1001@gmail.com', 2147483647, 'Gurunanak Nagar,Sindhi Colony,Wani', 'saidutta@123', 'Veg'),
-(54, 'Chanchal Amarwani', 'jh', 'chanchal.amarwani1001@gmail.com', 2147483647, 'Gurunanak Nagar,Sindhi Colony,Wani', 'saidutta@123', 'Veg'),
-(55, 'Chanchal Amarwani', 'hg', 'chanchal.amarwani1001@gmail.com', 2147483647, 'Gurunanak Nagar,Sindhi Colony,Wani', 'saidutta@123', 'Veg'),
-(56, 'Chanchal Amarwani', 'tt', 'chanchal.amarwani1001@gmail.com', 2147483647, 'Gurunanak Nagar,Sindhi Colony,Wani', 'saidutta@123', 'Non-Veg'),
-(57, 'Chanchal Amarwani', 'hhth', 'chanchal.amarwani1001@gmail.com', 2147483647, 'Gurunanak Nagar,Sindhi Colony,Wani', 'saidutta@123', 'Non-Veg'),
-(58, 'Chanchal Amarwani', 'mj', 'chanchal.amarwani1001@gmail.com', 2147483647, 'Gurunanak Nagar,Sindhi Colony,Wani', 'saidutta@123', 'Non-Veg'),
-(59, 'Chanchal Amarwani', 'jujj', 'chanchal.amarwani1001@gmail.com', 2147483647, 'Gurunanak Nagar,Sindhi Colony,Wani', 'saidutta@123', 'Non-Veg'),
-(60, 'Chanchal Amarwani', 'jjjjj', 'chanchal.amarwani1001@gmail.com', 2147483647, 'Gurunanak Nagar,Sindhi Colony,Wani', 'saidutta@123', 'Non-Veg'),
-(61, 'Chanchal Amarwani', 'saiheritakkk', 'chanchal.amarwani1001@gmail.com', 2147483647, 'Gurunanak Nagar,Sindhi Colony,Wani', 'saidutta@123', 'Non-Veg');
+(68, 'Simran', 'simmi', 'simran@gmail.com', '7878676767', 'Gurunanak Nagar,Sindhi Colony,Wani', 'simmi', 'Veg');
 
 -- --------------------------------------------------------
 
@@ -113,14 +53,14 @@ INSERT INTO `customer` (`cust_id`, `name`, `username`, `email`, `contact`, `addr
 --
 
 CREATE TABLE `food` (
-  `f_id` int(11) NOT NULL,
+  `f_id` int(30) NOT NULL,
   `name` text NOT NULL,
-  `price` int(11) NOT NULL,
+  `price` int(30) NOT NULL,
   `description` text NOT NULL,
-  `r_id` int(11) NOT NULL,
+  `r_id` int(30) NOT NULL,
   `images` text NOT NULL,
   `options` text NOT NULL,
-  `type` varchar(15) NOT NULL
+  `type` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -128,7 +68,10 @@ CREATE TABLE `food` (
 --
 
 INSERT INTO `food` (`f_id`, `name`, `price`, `description`, `r_id`, `images`, `options`, `type`) VALUES
-(23, 'juice', 30, 'rferfvridoufvoisdl', 3, 'images/Chocolate_Golgappe.jpg', 'Enable', 'Veg');
+(26, 'Momos', 50, 'NonVeg MOmos ', 8, 'images/nonveg_momos.jpg', 'Enable', 'Non-Veg'),
+(27, 'coffee', 30, 'Hot Special ', 8, 'images/coffee.jpg', 'Enable', 'Veg'),
+(28, 'Biryani', 100, 'non Veg Biryani', 9, 'images/biryani_chicken.jpg', 'Enable', 'Non-Veg'),
+(29, 'veg Thali', 70, 'Veg thali', 9, 'images/vegThali.jpg', 'Enable', 'Veg');
 
 -- --------------------------------------------------------
 
@@ -139,7 +82,7 @@ INSERT INTO `food` (`f_id`, `name`, `price`, `description`, `r_id`, `images`, `o
 CREATE TABLE `orders` (
   `o_id` int(30) NOT NULL,
   `f_id` int(30) NOT NULL,
-  `foodname` varchar(100) NOT NULL,
+  `foodname` varchar(250) NOT NULL,
   `price` int(30) NOT NULL,
   `quantity` int(30) NOT NULL,
   `order_date` date NOT NULL,
@@ -152,17 +95,7 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`o_id`, `f_id`, `foodname`, `price`, `quantity`, `order_date`, `c_id`, `r_id`) VALUES
-(42, 23, 'juice', 30, 1, '2020-06-21', 12, 3),
-(43, 23, 'juice', 30, 1, '2020-06-21', 12, 3),
-(44, 23, 'juice', 30, 1, '2020-06-21', 12, 3),
-(45, 23, 'juice', 30, 1, '2020-06-21', 12, 3),
-(46, 23, 'juice', 30, 1, '2020-06-21', 12, 3),
-(47, 23, 'juice', 30, 1, '2020-06-21', 12, 3),
-(48, 23, 'juice', 30, 1, '2020-06-21', 12, 3),
-(49, 23, 'juice', 30, 1, '2020-06-21', 12, 3),
-(50, 23, 'juice', 30, 3, '2020-06-21', 12, 3),
-(51, 23, 'juice', 30, 3, '2020-06-21', 12, 3),
-(52, 23, 'juice', 30, 3, '2020-06-21', 12, 3);
+(67, 27, 'coffee', 30, 1, '2020-06-22', 68, 8);
 
 -- --------------------------------------------------------
 
@@ -171,11 +104,11 @@ INSERT INTO `orders` (`o_id`, `f_id`, `foodname`, `price`, `quantity`, `order_da
 --
 
 CREATE TABLE `restaurant` (
-  `r_id` int(11) NOT NULL,
+  `r_id` int(30) NOT NULL,
   `name` text NOT NULL,
   `email` text NOT NULL,
   `username` text NOT NULL,
-  `contact` int(15) NOT NULL,
+  `contact` varchar(30) NOT NULL,
   `address` text NOT NULL,
   `password` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -185,9 +118,8 @@ CREATE TABLE `restaurant` (
 --
 
 INSERT INTO `restaurant` (`r_id`, `name`, `email`, `username`, `contact`, `address`, `password`) VALUES
-(3, 'Aswad', 'chanchal.amarwani1001@gmail.com', 'aswad', 2147483647, 'Gurunanak Nagar,Sindhi Colony,Wani', 'aa11'),
-(4, 'Chanchal Amarwani', 'chanchal.amarwani1001@gmail.com', 'mummas kitchen', 2147483647, 'Gurunanak Nagar,Sindhi Colony,Wani', 'aa'),
-(5, 'Chanchal Amarwani', 'chanchal.amarwani1001@gmail.com', 'mummas kitchen', 2147483647, 'Gurunanak Nagar,Sindhi Colony,Wani', 'aa');
+(8, 'Aswad', 'Aswad@gmail.com', 'aswad', '7654345621', 'Gurunanak Nagar,Sindhi Colony,Wani', 'aswad'),
+(9, 'Mumma\'s Kitchen', 'mummas@gmail.com', 'mummas kitchen', '8987878767', 'Kothrud,pune', 'kitchen');
 
 --
 -- Indexes for dumped tables
@@ -229,25 +161,25 @@ ALTER TABLE `restaurant`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `cust_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+  MODIFY `cust_id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 
 --
 -- AUTO_INCREMENT for table `food`
 --
 ALTER TABLE `food`
-  MODIFY `f_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `f_id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `o_id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `o_id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 
 --
 -- AUTO_INCREMENT for table `restaurant`
 --
 ALTER TABLE `restaurant`
-  MODIFY `r_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `r_id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Constraints for dumped tables
